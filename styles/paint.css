@@ -1,0 +1,85 @@
+.svg {
+    background-color: #cecece;
+    min-width: 960px;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+}
+
+.x.axis path {
+    display: none;
+    stroke: #777;
+}
+
+.x.axis line {
+    stroke: #777;
+}
+
+.y.axis path {
+    display: none;
+    stroke: #777;
+}
+
+.y.axis line {
+    stroke: #777;
+}
+
+.bar rect {
+    shape-rendering: crispEdges;
+}
+
+.bar text {
+    fill: white;
+    stroke: none;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+}
+
+.bar rect.espera {
+    fill: #BCBCBC;
+    stroke: black;
+}
+
+.bar rect.ejecucion {
+    fill: steelblue;
+    stroke: black;
+}
+
+.bar rect.restante {
+    opacity: .4;
+    fill: #cecece;
+}
+
+.bar rect.ejecutandose {
+    fill: green;
+}
+
+.bar rect.bloqueado {
+    fill: red;
+}
+
+.texto-nombre {
+    font-weight: bold;
+}
+#info{
+    z-index: 1; 
+    position: fixed;
+    bottom: 0px;
+    right: 5px;
+    font-size: 12px;
+    background-color: #fff;
+    width: 150px;
+    border: solid 1px;
+}
+h5 span{
+    color: red;
+}

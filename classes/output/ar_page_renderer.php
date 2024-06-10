@@ -30,10 +30,21 @@ defined('MOODLE_INTERNAL') || die();
 
 class ar_page_renderer extends plugin_renderer_base {
 
-    public function render_ar($data) {
+    public function render_ar($datos, $procesos, $recursos, $view, $complete, $matrizA, $matrizS, $vectorD, $vectorE) {
         global $OUTPUT;
 
-        $data = 'AR';
+        $data = array(
+            'datos' => $datos,
+            'procesos' => $procesos,
+            'recursos' => $recursos,
+            'view' => $view,
+            'complete' => $complete,
+            'matrizA' => $matrizA,
+            'matrizS' => $matrizS,
+            'vectorD' => $vectorD,
+            'vectorE' => $vectorE
+        );
+
         $content = $OUTPUT->render_from_template('simulation/ar', $data);
 
         return $content;

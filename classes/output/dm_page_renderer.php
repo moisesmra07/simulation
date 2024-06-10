@@ -29,10 +29,20 @@ defined('MOODLE_INTERNAL') || die();
 
 class dm_page_renderer extends plugin_renderer_base {
 
-    public function render_dm($data) {
+    public function render_dm($datos, $procesos, $recursos, $view, $complete, $matrizA, $matrizS, $secuenciaP) {
         global $OUTPUT;
 
-        $data = 'DM';
+        $data = array(
+            'datos' => $datos,
+            'procesos' => $procesos,
+            'recursos' => $recursos,
+            'view' => $view,
+            'complete' => $complete,
+            'matrizA' => $matrizA,
+            'matrizS' => $matrizS,
+            'secuenciaP' => $secuenciaP,
+        );
+
         $content = $OUTPUT->render_from_template('simulation/dm', $data);
 
         return $content;

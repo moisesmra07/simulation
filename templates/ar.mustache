@@ -7,47 +7,45 @@
 </head>
 
 <body>
-    <h5 class="mb-3" style="text-align: center;">'. get_string('datos_interbloqueo', 'mod_simulation') .'</h5>
+    <h5 class="mb-3" style="text-align: center;"> {{{datos}}} </h5>
     <div class="row mb-4">
         <div class="col-6 mb-3" style="display: flex; justify-content: center; align-items: center;">
-            <input type="number" id="filas" placeholder=" '. get_string('procesos', 'mod_simulation') .' "style="margin-inline-start: 10px;">
+            <input type="number" id="filas" placeholder=" {{{procesos}}} "style="margin-inline-start: 10px;">
         </div>
 
         <div class="col" style="display: flex; justify-content: center; align-items: center;">
-            <input type="number" id="columnas" placeholder=" '. get_string('recursos', 'mod_simulation') .' "style="margin-inline-start: 10px;">
+            <input type="number" id="columnas" placeholder=" {{{recursos}}} "style="margin-inline-start: 10px;">
         </div>
     </div>
 
-    <div>
-        <button class="btn letter" onclick="generarmatricesAR()">'. get_string('view', 'mod_simulation') .'</button>
+    <div class="mb-3" style="display: flex; justify-content: center; align-items: center;">
+        <button class="btn letter" style="text-align:center" onclick="generarmatricesAR()"> {{{view}}} </button>
     </div>
 
-    <h5 class="mb-3" style="text-align: center;"> '. get_string('complete', 'mod_simulation') .' </h5>
+    <h5 class="mb-3" style="text-align: center;"> {{{complete}}} </h5>
     <div class="row container-fluid">
-        <h5 id="letreroMA"> '. get_string('matrizA', 'mod_simulation') .' </h5>  
+        <h5 id="letreroMA"> {{{matrizA}}} </h5>  
         <div class="container-fluid mb-4" style="display: flex; justify-content: center; align-items: center;">
             <table id="matrizA"></table>
         </div>
 
-        <h5 id="letreroMS"> '. get_string('matrizS', 'mod_simulation') .' </h5>
+        <h5 id="letreroMS"> {{{matrizS}}} </h5>
         <div class="container-fluid mb-4" style="display: flex; justify-content: center; align-items: center;">
             <table id="matrizS"></table>
         </div>
 
-        <h5 id="letreroVD">'. get_string('vectorD', 'mod_simulation') .'</h5>
+        <h5 id="letreroVD"> {{{vectorD}}} </h5>
         <div class="container-fluid mb-4" style="display: flex; justify-content: center; align-items: center;">
             <table id="vectorD"></table>
         </div>
 
-        <h5 id="letreroVE">'. get_string('vectorE', 'mod_simulation') .'</h5>
+        <h5 id="letreroVE"> {{{vectorE}}} </h5>
         <div class="container-fluid mb-4" style="display: flex; justify-content: center; align-items: center;">
             <table id="vectorE"></table>
         </div>
-
-        <h5 id="letreroSP">'. get_string('secuenciaP', 'mod_simulation') .'</h5>
-        <div class="container-fluid mb-4" style="display: flex; justify-content: center; align-items: center;">
-            <table id="secuenciaP"></table>
-        </div>
+        
     </div>
+
+    <script src="scripts/script.js"></script>
 
 </body>

@@ -30,7 +30,7 @@ defined('MOODLE_INTERNAL') || die();
 
 class sli_page_renderer extends plugin_renderer_base {
 
-    public function render_sli($datos, $procesos, $recursos, $view, $complete, $matrizA, $matrizS, $vectorD, $vectorE, $secuenciaP) {
+    public function render_sli($datos, $procesos, $recursos, $view, $complete, $matrizA, $matrizS, $vectorD, $vectorE) {
         global $OUTPUT;
 
         $data = array(
@@ -42,8 +42,7 @@ class sli_page_renderer extends plugin_renderer_base {
             'matrizA' => $matrizA,
             'matrizS' => $matrizS,
             'vectorD' => $vectorD,
-            'vectorE' => $vectorE,
-            'secuenciaP' => $secuenciaP,
+            'vectorE' => $vectorE
         );
 
         $content = $OUTPUT->render_from_template('simulation/sli', $data);

@@ -1,0 +1,104 @@
+main {
+    min-height: calc(100vh - 306px);
+}
+
+.container .jumbotron {
+    padding: 30px 15px;
+    position: relative;
+}
+
+.play-btn,
+.pause-btn {
+    margin: 10px 0 20px;
+}
+
+.table>tbody>tr>td {
+    max-width: 90px;
+    vertical-align: middle;
+}
+
+.table-container {
+    height: 315px;
+    overflow-y: scroll;
+    position: relative;
+    text-align: center;
+}
+
+.table-hover>tbody>tr.ejecutandose:hover {
+    background-color: green;
+}
+
+.header-fixed {
+    background-color: #eee;
+    left: 15px;
+    position: absolute;
+    top: 30px;
+    width: calc(100% - 30px);
+}
+
+.header-fixed th {
+    background-color: #eee;
+    padding: 0 5px 15px;
+    text-align: center;
+}
+
+.chart-container {
+    background-color: #cecece;
+    height: 500px;
+    margin: 50px auto;
+    max-width: 960px;
+    overflow: scroll;
+    width: 100%;
+}
+
+.ejecutandose,
+.ejecutandose:hover {
+    background-color: green;
+    color: white;
+}
+
+.footer {
+    background-color: rgb(27, 67, 245);
+    color: #eee;
+    padding: 20px 0;
+    text-align: center;
+}
+
+#info {
+    background-color: #fff;
+    border: solid 1px;
+    bottom: 0px;
+    font-size: 12px;
+    position: fixed;
+    right: 5px;
+    z-index: 1;
+    width: 150px;
+}
+
+#info h5 span {
+    color: red;
+}
+
+@media screen and (max-width: 600px) {
+    .header-fixed {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}

@@ -21,3 +21,34 @@
  * @copyright   2024 Moises Rodriguez <mrdguezalvz@gmail.com>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
+require(__DIR__.'/../../config.php');
+
+require_once(__DIR__.'/lib.php');
+
+$context = context_system::instance();
+$PAGE->set_context($context);
+$PAGE->set_url(new moodle_url('/mod/simulation/deadlock.php'));
+$PAGE->set_pagelayout('standard');
+$PAGE->set_title(get_string('pluginname', 'mod_simulation'));
+$PAGE->set_heading(get_string('dm', 'mod_simulation'));
+
+
+$renderer = $PAGE->get_renderer('mod_simulation', 'dm_page');
+
+// Carga de datos necesarios para renderizar el template Mustache
+
+$data = array(
+    'datos' => get_string('datos_interbloqueo', 'mod_simulation'),
+    'procesos' => get_string('procesos', 'mod_simulation'),
+    'recursos' => get_string('recursos', 'mod_simulation'),
+    'view' => get_string('view', 'mod_simulation'),
+    'complete' => get_string('complete', 'mod_simulation'),
+    'matrizA' => get_string('matrizA', 'mod_simulation'),
+    'matrizS' => get_string('matrizS', 'mod_simulation'),
+    'secuenciaP' => get_string('secuenciaP', 'mod_simulation'),
+);
+
+echo $OUTPUT->header();
+echo $OUTPUT->render_from_template('simulation/dm', $data);
+echo $OUTPUT->footer();

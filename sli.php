@@ -47,8 +47,7 @@ $data = array(
     'matrizA' => get_string('matrizA', 'mod_simulation'),
     'matrizS' => get_string('matrizS', 'mod_simulation'),
     'vectorD' => get_string('vectorD', 'mod_simulation'),
-    'vectorE' => get_string('vectorE', 'mod_simulation'),
-    'secuenciaP' => get_string('secuenciaP', 'mod_simulation'),
+    'vectorE' => get_string('vectorE', 'mod_simulation')
 );
 
 echo $OUTPUT->header();

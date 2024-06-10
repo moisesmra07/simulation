@@ -29,10 +29,21 @@ defined('MOODLE_INTERNAL') || die();
 
 class ms_page_renderer extends plugin_renderer_base {
 
-    public function render_ms($data) {
+    public function render_ms($datos, $procesos, $recursos, $view, $complete, $matrizA, $vectorD, $vectorE, $secuenciaP) {
         global $OUTPUT;
 
-        $data = 'MS';
+        $data = array(
+            'datos' => $datos,
+            'procesos' => $procesos,
+            'recursos' => $recursos,
+            'view' => $view,
+            'complete' => $complete,
+            'matrizA' => $matrizA,
+            'vectorD' => $vectorD,
+            'vectorE' => $vectorE,
+            'secuenciaP' => $secuenciaP,
+        );
+
         $content = $OUTPUT->render_from_template('simulation/ms', $data);
 
         return $content;
