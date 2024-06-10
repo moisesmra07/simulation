@@ -1,0 +1,107 @@
+  #s01 {
+    background-color: #f1f1f1;
+    padding: 20px;
+    border: 2px solid #00135a;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* add a subtle shadow */
+    margin-top: 30px;
+    color: white;
+  }
+
+  #s01 h4 {
+    color: #333;
+    font-weight: bold;
+    margin-top: 0;
+    text-align: center;
+  }
+
+  #s02 {
+    align-items: center;
+    height: 15em;
+    margin: 4.375em 0;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .container02  {
+    display: flex;
+    flex-direction: column;
+    flex-direction: row;
+    gap: 1.5rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container01  {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .column {
+    flex: 50%;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    border: 2px solid #00135a;
+    border-radius: 10px;
+  }
+  #h5 {
+    color: #333;
+    font-weight: bold;
+    margin-top: 5px;
+    text-align: center;
+  }
+  #a {
+    color: #00135a;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  #pix00 {
+    box-shadow: 10px 4px 47px 0 rgba(0,0,0,0.2);
+    width: 45%;
+    height: 45%;
+    margin-bottom: 5px;
+  }
+  
+  table, th, td {
+    border: 2px solid #00135a;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .botones {
+    border: 1px solid #00135a;
+    color: black;
+    background-color: white;
+  }
+
+  .letter {
+    background-color: #00135a; 
+    color: white;
+  }
+
+  #letreroMA {
+    color: #00135a; 
+  }
+
+  #letreroMS {
+    color: #00135a; 
+  }
+
+  #letreroVD {
+    color: #00135a; 
+  }
+
+  #letreroVE {
+    color: #00135a; 
+  }
+
+  #letreroSP {
+    color: #00135a; 
+  }
+
