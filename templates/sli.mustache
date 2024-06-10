@@ -14,7 +14,7 @@
         </div>
 
         <div class="col" style="display: flex; justify-content: center; align-items: center;">
-            <input type="number" id="columnas" placeholder=" {{{recursos}}} "style="margin-inline-start: 10px;">
+            <input type="number" id="columnas" placeholder=" {{{recursos}}} " style="margin-inline-start: 10px;">
         </div>
     </div>
 
@@ -45,9 +45,13 @@
         </div>
     </div>
 
-        <h5 id="primeraiteracion"></h5>
-        
+    <div class="container-fluid mb-4" style="display: flex; justify-content: center; align-items: center;">
+        <button class="btn letter" id="botonSimular" style="margin-left: 10px;" onclick= "var main = new Main(); main.ejecutar()" > {{{simular}}} </button>
+    </div>
+
+    <div id="resultados"></div>
 
     <script src="scripts/script.js"></script>
+    <script src="scripts/sli/main.js"></script>
 
 </body>
