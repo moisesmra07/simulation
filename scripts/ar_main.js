@@ -1,10 +1,12 @@
+let numProcesos = document.getElementById('filas').value
+let numRecursos = document.getElementById('columnas').value;
+
 function generarTablas() {
     let matrizAsignacion = crearMatrizAsignacion();
     let matrizSolicitud = crearMatrizSolicitud();
     let vectorDisponibilidad = crearVectorDisponibilidad();
     let vectorExistencia = crearVectorExistencia();
 
-    // Puedes hacer más con los datos generados, como calcular resultados o mostrarlos en la interfaz de usuario
     console.log("Matriz de Asignación:", matrizAsignacion);
     console.log("Matriz de Solicitud:", matrizSolicitud);
     console.log("Vector de Disponibilidad:", vectorDisponibilidad);
@@ -12,8 +14,6 @@ function generarTablas() {
 }
 
 function leerTablas() {
-    let numProcesos = document.getElementById('filas').value
-    let numRecursos = document.getElementById('columnas').value;
     let asignacion = leerMatrizAsignacion();
     let solicitud = leerMatrizSolicitud();
     let disponibilidad = leerVectorDisponibilidad();
@@ -29,8 +29,8 @@ function leerTablas() {
 
 // Crear MA vacia
 function crearMatrizAsignacion() {
-    var filas = parseInt(document.getElementById('filas').value);
-    var columnas = parseInt(document.getElementById('columnas').value);
+    let filas = parseInt(document.getElementById('filas').value);
+    let columnas = parseInt(document.getElementById('columnas').value);
     let tablaMA = document.getElementById('matrizAsignacion');
     let matrizA = [];
 
@@ -64,8 +64,8 @@ function crearMatrizAsignacion() {
 
 // Crear MS vacia
 function crearMatrizSolicitud() {
-    var filas = parseInt(document.getElementById("filas").value);
-    var columnas = parseInt(document.getElementById("columnas").value);
+    let filas = parseInt(document.getElementById("filas").value);
+    let columnas = parseInt(document.getElementById("columnas").value);
     let tablaMS = document.getElementById("matrizSolicitud");
     let matrizS = [];
 
@@ -98,7 +98,7 @@ function crearMatrizSolicitud() {
 
 // Crear VD vacio
 function crearVectorDisponibilidad() {
-    var columnas = parseInt(document.getElementById("columnas").value);
+    let columnas = parseInt(document.getElementById("columnas").value);
     let tablaVD = document.getElementById("vectorDisponibilidad");
     let vectorD = [];
 
@@ -127,7 +127,7 @@ function crearVectorDisponibilidad() {
 
 // Crear VE vacio
 function crearVectorExistencia() {
-    var columnas = parseInt(document.getElementById("columnas").value);
+    let columnas = parseInt(document.getElementById("columnas").value);
     let tablaVE = document.getElementById("vectorExistencia");
     let vectorE = [];
 
@@ -224,76 +224,4 @@ function leerVectorExistencia() {
     }
 
     return vectorE;
-}
-
-function simularSLI() {
-    // Función para leer los valores de la SLI
-
-
-    // Función para liberar un proceso
-    function liberarProceso(proceso) {
-        for (let i = 0; i < numRecursos; i++) {
-            disponibilidad[i] += asignacion[proceso][i];
-        }
-    }
-
-    // Función para calcular la disponibilidad inicial
-    function calcularDisponibilidadInicial() {
-        let asignacionTotal = new Array(numRecursos).fill(0);
-        for (let j = 0; j < numRecursos; j++) {
-            for (let i = 0; i < numProcesos; i++) {
-                asignacionTotal[j] += asignacion[i][j];
-            }
-        }
-        for (let i = 0; i < numRecursos; i++) {
-            disponibilidad[i] = existencia[i] - asignacionTotal[i];
-        }
-    }
-
-    // Función para verificar si un proceso puede ser liberado
-    function puedeSerLiberado(proceso) {
-        for (let i = 0; i < numRecursos; i++) {
-            if (solicitud[proceso][i] > disponibilidad[i]) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    // Simulamos la secuencia libre de interbloqueo
-    let procesosLiberados = 0;
-    let resultados = document.getElementById("resultados");
-    resultados.innerHTML = ''; // Limpia los resultados anteriores
-
-    calcularDisponibilidadInicial();
-
-    while (procesosLiberados < numProcesos) {
-        let procesoLiberado = false;
-        for (let i = 0; i < numProcesos; i++) {
-            if (puedeSerLiberado(i)) {
-                liberarProceso(i);
-                procesosLiberados++;
-                procesoLiberado = true;
-                let parrafo = document.createElement("p");
-                parrafo.innerHTML = `Proceso ${i} liberado`;
-                resultados.appendChild(parrafo);
-                break;
-            }
-        }
-        if (!procesoLiberado) {
-            let parrafo = document.createElement("p");
-            parrafo.innerHTML = "No se puede liberar ningún proceso";
-            resultados.appendChild(parrafo);
-            break;
-        }
-    }
-
-    let parrafoFinal = document.createElement("p");
-    parrafoFinal.innerHTML = "Secuencia libre de interbloqueo terminada";
-    resultados.appendChild(parrafoFinal);
-
-    let parrafoDisponibilidad = document.createElement("p");
-    parrafoDisponibilidad.innerHTML = `Disponibilidad final: ${disponibilidad.join(", ")}`;
-    resultados.appendChild(parrafoDisponibilidad);
-
 }

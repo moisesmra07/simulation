@@ -19,32 +19,36 @@
     </div>
 
     <div class="mb-3" style="display: flex; justify-content: center; align-items: center;">
-        <button class="btn letter" style="text-align:center" onclick="generarmatricesMS()"> {{{view}}} </button>
+        <button class="btn letter" style="text-align:center" onclick="generarTablas()"> {{{view}}} </button>
+    </div>
+
+    <div class="mb-3" style="display: flex; justify-content: center; align-items: center;">
+        <button class="btn letter" style="text-align:center" onclick="leerTablas()"> {{{read}}} </button>
     </div>
 
     <h5 class="mb-3" style="text-align: center;"> {{{complete}}} </h5>
     <div class="row container-fluid">
         <h5 id="letreroMA"> {{{matrizA}}} </h5>  
         <div class="container-fluid mb-4" style="display: flex; justify-content: center; align-items: center;">
-            <table id="matrizA"></table>
+            <table id="matrizAsignacion"></table>
         </div>
 
         <h5 id="letreroVD"> {{{vectorD}}} </h5>
         <div class="container-fluid mb-4" style="display: flex; justify-content: center; align-items: center;">
-            <table id="vectorD"></table>
+            <table id="vectorDisponibilidad"></table>
         </div>
 
         <h5 id="letreroVE"> {{{vectorE}}} </h5>
         <div class="container-fluid mb-4" style="display: flex; justify-content: center; align-items: center;">
-            <table id="vectorE"></table>
+            <table id="vectorExistencia"></table>
         </div>
 
         <h5 id="letreroSP"> {{{secuenciaP}}} </h5>
         <div class="container-fluid mb-4" style="display: flex; justify-content: center; align-items: center;">
-            <table id="secuenciaP"></table>
+            <table id="secuenciaProcesos"></table>
         </div>
     </div>
 
-    <script src="scripts/script.js"></script>
+    <script src="scripts/ms_main.js"></script>
 
 </body>
