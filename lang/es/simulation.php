@@ -53,6 +53,7 @@ $string['ms'] = 'Matriz Solicitud';
 $string['dm'] = 'Disponibilidad Mínima';
 $string['ar'] = 'Apropiación de Recursos';
 $string['view'] = 'Visualizar Matrices:';
+$string['read'] = 'Leer Datos';
 $string['matrizA'] = 'Matriz Asignación:';
 $string['matrizS'] = 'Matriz Solicitud:';
 $string['vectorD'] = 'Vector Disponibilidad:';

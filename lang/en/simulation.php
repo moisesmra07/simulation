@@ -54,6 +54,7 @@ $string['ms'] = 'Request <br> Matrix';
 $string['dm'] = 'Minimum <br> Availability';
 $string['ar'] = 'Resource <br> Appropriation';
 $string['view'] = 'Display Matrices';
+$string['read'] = 'Read Data';
 $string['matrizA'] = 'Assignment Matrix:';
 $string['matrizS'] = 'Request Matrix:';
 $string['vectorD'] = 'Availability Vector:';

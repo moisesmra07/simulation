@@ -1,220 +1,196 @@
-//Genera las matrices a partir de la seleccion del simulador
-function generarmatricesSLI(){
-    crearMatrizA();
-    crearMatrizS();
-    crearVectorD();
-    crearVectorE();
-    showSLI();
+
+function generarMS() {
+    let matrizAsignacion = crearMatrizAsignacion();
+    let vectorDisponibilidad = crearVectorDisponibilidad();
+    let vectorExistencia = crearVectorExistencia();
+    let secuenciaProcesos = crearSecuenciaProcesos();
+
+    // Puedes hacer más con los datos generados, como calcular resultados o mostrarlos en la interfaz de usuario
+    console.log("Matriz de Asignación:", matrizAsignacion);
+    console.log("Vector de Disponibilidad:", vectorDisponibilidad);
+    console.log("Vector de Existencia:", vectorExistencia);
+    console.log("Secuencia de Procesos:", secuenciaProcesos);
 }
 
-function generarmatricesMS(){
-    crearMatrizA();
-    crearVectorD();
-    crearVectorE();
-    crearSecuenciaP();
-    showMS();
+function generarDM() {
+    let matrizAsignacion = crearMatrizAsignacion();
+    let matrizSolicitud = crearMatrizSolicitud();
+    let secuenciaProcesos = crearSecuenciaProcesos();
+
+    // Puedes hacer más con los datos generados, como calcular resultados o mostrarlos en la interfaz de usuario
+    console.log("Matriz de Asignación:", matrizAsignacion);
+    console.log("Matriz de Solicitud:", matrizSolicitud);
+    console.log("Secuencia de Procesos:", secuenciaProcesos);
 }
 
-function generarmatricesDM(){
-    crearMatrizA();
-    crearMatrizS();
-    crearSecuenciaP();
-    showDM();
+function generarAR() {
+    let matrizAsignacion = crearMatrizAsignacion();
+    let matrizSolicitud = crearMatrizSolicitud();
+    let vectorDisponibilidad = crearVectorDisponibilidad();
+    let vectorExistencia = crearVectorExistencia();
+
+    // Puedes hacer más con los datos generados, como calcular resultados o mostrarlos en la interfaz de usuario
+    console.log("Matriz de Asignación:", matrizAsignacion);
+    console.log("Matriz de Solicitud:", matrizSolicitud);
+    console.log("Vector de Disponibilidad:", vectorDisponibilidad);
+    console.log("Vector de Existencia:", vectorExistencia);
 }
 
-function generarmatricesAR(){
-    crearMatrizA();
-    crearMatrizS();
-    crearVectorD();
-    crearVectorE();
-    showAR();    
-}
-//Crear tablas para matrices y vectores
-function crearMatrizA() {
-    let filas = document.getElementById('filas').value;
-    let columnas = document.getElementById('columnas').value;
-    let tabla = document.getElementById('matrizA');
+// Función para crear una matriz de asignación
+function crearMatrizAsignacion() {
+    var filas = parseInt(document.getElementById('filas').value);
+    var columnas = parseInt(document.getElementById('columnas').value);
+    let tablaMA = document.getElementById('matrizAsignacion');
+    let matrizA = [];
 
-    // Limpiar la tabla existente
-    tabla.innerHTML = '';
-
-    for (let i = 0; i < filas; i++) {
-      let fila = document.createElement('tr');
-      for (let j = 0; j < columnas; j++) {
-        let celda = document.createElement('td');
-        let input = document.createElement('input');
-        input.type = 'text';
-        celda.appendChild(input);
-        fila.appendChild(celda);
-      }
-      tabla.appendChild(fila);
+    // Validar entradas
+    if (isNaN(filas) || isNaN(columnas) || filas <= 0 || columnas <= 0) {
+        console.error("Número de filas y columnas debe ser un entero positivo.");
+        return null; // Retornar null en caso de error
     }
+
+    tablaMA.innerHTML = '';
+
+    // Crear la tabla
+    for (let i = 0; i < filas; i++) {
+        let fila = document.createElement('tr');
+        let filaArray = [];
+
+        for (let j = 0; j < columnas; j++) {
+            let celda = document.createElement('td');
+            let input = document.createElement('input');
+            input.type = 'number';
+            celda.appendChild(input);
+            fila.appendChild(celda);
+        }
+
+        tablaMA.appendChild(fila);
+        matrizA.push(filaArray);
+    }
+
+    return matrizA;
 }
 
-function crearMatrizS() {
-    let filas = document.getElementById('filas').value;
-    let columnas = document.getElementById('columnas').value;
-    let matrizS = document.getElementById('matrizS');
+// Función para crear una matriz de solicitud
+function crearMatrizSolicitud() {
+    var filas = parseInt(document.getElementById("filas").value);
+    var columnas = parseInt(document.getElementById("columnas").value);
+    let tablaMS = document.getElementById("matrizSolicitud");
+    let matrizS = [];
 
-    // Limpiar la tabla existente
-    matrizS.innerHTML = '';
+    // Validar entradas
+    if (isNaN(filas) || isNaN(columnas) || filas <= 0 || columnas <= 0) {
+        console.error("Número de filas y columnas debe ser un entero positivo.");
+        return null; // Retornar null en caso de error
+    }
+
+    tablaMS.innerHTML = '';
 
     for (let i = 0; i < filas; i++) {
         let fila = document.createElement('tr');
+        let filaArray = [];
+
         for (let j = 0; j < columnas; j++) {
-          let celda = document.createElement('td');
-          let input = document.createElement('input');
-          input.type = 'text';
-          celda.appendChild(input);
-          fila.appendChild(celda);
+            let celda = document.createElement('td');
+            let input = document.createElement('input');
+            input.type = 'number';
+            celda.appendChild(input);
+            fila.appendChild(celda);
         }
-        matrizS.appendChild(fila);
+
+        tablaMS.appendChild(fila);
+        matrizS.push(filaArray);
     }
+
+    return matrizS;
 }
 
-function crearVectorD() {
-    let filas = document.getElementById('filas').value;
-    let columnas = document.getElementById('columnas').value;
-    let vectorD = document.getElementById('vectorD');
+// Función para crear un vector de disponibilidad
+function crearVectorDisponibilidad() {
+    var columnas = parseInt(document.getElementById("columnas").value);
+    let tablaVD = document.getElementById("vectorDisponibilidad");
+    let vectorD = [];
 
-    // Limpiar la tabla existente
-    vectorD.innerHTML = '';
+    // Validar entrada
+    if (isNaN(columnas) || columnas <= 0) {
+        console.error("Número de columnas debe ser un entero positivo.");
+        return null; // Retornar null en caso de error
+    }
+
+    tablaVD.innerHTML = '';
+
+    let fila = document.createElement('tr');
 
     for (let i = 0; i < columnas; i++) {
         let celda = document.createElement('td');
         let input = document.createElement('input');
-        input.type = 'text';
+        input.type = 'number';
         celda.appendChild(input);
-        vectorD.appendChild(celda);
+        fila.appendChild(celda);
     }
+
+    tablaVD.appendChild(fila);
+
+    return vectorD;
 }
 
-function crearVectorE() {
-    let filas = document.getElementById('filas').value;
-    let columnas = document.getElementById('columnas').value;
-    let vectorE = document.getElementById('vectorE');
+// Función para crear un vector de existencia
+function crearVectorExistencia() {
+    var columnas = parseInt(document.getElementById("columnas").value);
+    let tablaVE = document.getElementById("vectorExistencia");
+    let vectorE = [];
 
-    // Limpiar la tabla existente
-    vectorE.innerHTML = '';
+    // Validar entrada
+    if (isNaN(columnas) || columnas <= 0) {
+        console.error("Número de columnas debe ser un entero positivo.");
+        return null; // Retornar null en caso de error
+    }
+
+    tablaVE.innerHTML = '';
+
+    let fila = document.createElement('tr');
 
     for (let i = 0; i < columnas; i++) {
         let celda = document.createElement('td');
         let input = document.createElement('input');
-        input.type = 'text';
+        input.type = 'number';
         celda.appendChild(input);
-        vectorE.appendChild(celda);
+        fila.appendChild(celda);
     }
+
+    tablaVE.appendChild(fila);
+
+    return vectorE;
 }
 
-function crearSecuenciaP() {
-    let filas = document.getElementById('filas').value;
-    let columnas = document.getElementById('columnas').value;
-    let secuenciaP = document.getElementById('secuenciaP');
+// Función para crear una secuencia de procesos
+function crearSecuenciaProcesos() {
+    var columnas = parseInt(document.getElementById("columnas").value);
+    let tablaSP = document.getElementById("secuenciaProcesos");
+    let secuenciaP = [];
 
-    // Limpiar la tabla existente
-    secuenciaP.innerHTML = '';
+    // Validar entrada
+    if (isNaN(columnas) || columnas <= 0) {
+        console.error("Número de columnas debe ser un entero positivo.");
+        return null; // Retornar null en caso de error
+    }
+
+    tablaSP.innerHTML = '';
+
+    let fila = document.createElement('tr');
 
     for (let i = 0; i < columnas; i++) {
         let celda = document.createElement('td');
         let input = document.createElement('input');
-        input.type = 'text';
+        input.type = 'number';
         celda.appendChild(input);
-        secuenciaP.appendChild(celda);
+        fila.appendChild(celda);
     }
-}
-//Mostrar u ocultar las tablas y letreros innecesarios
-function showSLI() {
-    let input0 = document.getElementById('letreroMA');
-    let input1 = document.getElementById('letreroMS');
-    let input2 = document.getElementById('letreroVD');
-    let input3 = document.getElementById('letreroVE');
-    let input4 = document.getElementById('letreroSP');
-    let input5 = document.getElementById('matrizA');
-    let input6 = document.getElementById('matrizS');
-    let input7 = document.getElementById('vectorD');
-    let input8 = document.getElementById('vectorE');
-    let input9 = document.getElementById('secuenciaP');
 
-        input0.style.display = 'block';
-        input1.style.display = 'block';
-        input2.style.display = 'block';
-        input3.style.display = 'block';
-        input4.style.display = 'none';
-        input5.style.display = 'block';
-        input6.style.display = 'block';
-        input7.style.display = 'block';
-        input8.style.display = 'block';
-        input9.style.display = 'none';
+    tablaSP.appendChild(fila);
+
+    return secuenciaP;
 }
 
-function showMS() {
-    let input0 = document.getElementById('letreroMA');
-    let input1 = document.getElementById('letreroMS');
-    let input2 = document.getElementById('letreroVD');
-    let input3 = document.getElementById('letreroVE');
-    let input4 = document.getElementById('letreroSP');
-    let input5 = document.getElementById('matrizA');
-    let input6 = document.getElementById('matrizS');
-    let input7 = document.getElementById('vectorD');
-    let input8 = document.getElementById('vectorE');
-    let input9 = document.getElementById('secuenciaP');
 
-        input0.style.display = 'block';
-        input1.style.display = 'none';
-        input2.style.display = 'block';
-        input3.style.display = 'block';
-        input4.style.display = 'block';
-        input5.style.display = 'block';
-        input6.style.display = 'none';
-        input7.style.display = 'block';
-        input8.style.display = 'block';
-        input9.style.display = 'block';
-}
 
-function showDM() {
-    let input0 = document.getElementById('letreroMA');
-    let input1 = document.getElementById('letreroMS');
-    let input2 = document.getElementById('letreroVD');
-    let input3 = document.getElementById('letreroVE');
-    let input4 = document.getElementById('letreroSP');
-    let input5 = document.getElementById('matrizA');
-    let input6 = document.getElementById('matrizS');
-    let input7 = document.getElementById('vectorD');
-    let input8 = document.getElementById('vectorE');
-    let input9 = document.getElementById('secuenciaP');
-
-        input0.style.display = 'block';
-        input1.style.display = 'block';
-        input2.style.display = 'none';
-        input3.style.display = 'none';
-        input4.style.display = 'block';
-        input5.style.display = 'block';
-        input6.style.display = 'block';
-        input7.style.display = 'none';
-        input8.style.display = 'none';
-        input9.style.display = 'block';
-}
-
-function showAR() {
-    let input0 = document.getElementById('letreroMA');
-    let input1 = document.getElementById('letreroMS');
-    let input2 = document.getElementById('letreroVD');
-    let input3 = document.getElementById('letreroVE');
-    let input4 = document.getElementById('letreroSP');
-    let input5 = document.getElementById('matrizA');
-    let input6 = document.getElementById('matrizS');
-    let input7 = document.getElementById('vectorD');
-    let input8 = document.getElementById('vectorE');
-    let input9 = document.getElementById('secuenciaP');
-
-        input0.style.display = 'block';
-        input1.style.display = 'block';
-        input2.style.display = 'block';
-        input3.style.display = 'block';
-        input4.style.display = 'none';
-        input5.style.display = 'block';
-        input6.style.display = 'block';
-        input7.style.display = 'block';
-        input8.style.display = 'block';
-        input9.style.display = 'none';
-}

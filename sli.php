@@ -43,6 +43,7 @@ $data = array(
     'procesos' => get_string('procesos', 'mod_simulation'),
     'recursos' => get_string('recursos', 'mod_simulation'),
     'view' => get_string('view', 'mod_simulation'),
+    'read' => get_string('read', 'mod_simulation'),
     'complete' => get_string('complete', 'mod_simulation'),
     'matrizA' => get_string('matrizA', 'mod_simulation'),
     'matrizS' => get_string('matrizS', 'mod_simulation'),
