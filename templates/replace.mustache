@@ -14,10 +14,10 @@
     <body>
 
         <div class="container-fluid mb-3" style="text-align: center; align-items: center; margin-top: 30px;">
-            <p>'. get_string('select_algoritmo', 'mod_simulation')  .'</p> 
+            <p> {{{select_algoritmo}}}</p> 
             <label for="validationCustom04" class="form-label"></label>
             <select class="form-select mb-4 container-fluid" id="validationCustom04" required style="width: auto;">
-                <option selected disabled value="">'. get_string('elegir', 'mod_simulation')  .'</option>
+                <option selected disabled value=""> {{{elegir}}} </option>
                 <option id="fifo_G">FIFO GLOBAL</option>
                 <option id="fifo_L">FIFO LOCAL</option>
                 <option id="lru_G">LRU GLOBAL</option>
@@ -25,9 +25,9 @@
                 <option id="optimo_G">ÓPTIMO GLOBAL</option>
                 <option id="optimo_L">ÓPTIMO LOCAL</option>
             </select>
-            
+
             <div class="container-fluid mb-3" style="text-align: end; align-items: end; margin-top: 30px;">
-                <button id="botonSimular" class="btn letter" onclick="simularAlgoritmoMemoria()">'. get_string('simular_reemplazo', 'mod_simulation')  .'</button>
+                <button id="botonSimular" class="btn letter" onclick="simularAlgoritmoMemoria()"> {{{simular_reemplazo}}} </button>
             </div>
         </div>
 

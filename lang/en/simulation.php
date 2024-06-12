@@ -80,7 +80,6 @@ $string['numpag'] = '# of pages';
 $string['nummarco'] = '# of frames';
 $string['desplV'] = 'Displacement';
 $string['desplF'] = 'Displacement';
-$string['cantP'] = 'Number of requests';
 $string['tiempo'] = 'Initial instant of time';
 $string['select_algoritmo'] = 'Select page replacement algorithm:';
 $string['calcular'] = 'Calculate';
