@@ -1,0 +1,39 @@
+{{% BLOCKS }}
+<!DOCTYPE html>
+<html lang="en">
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{$ title }}Replace{{/ title }}</title>
+        {{$ stylesheets }}
+            <link rel="stylesheet" href="styles/style.css">
+        {{/ stylesheets }}
+    </head>
+    <body>
+
+        <div class="container-fluid mb-3" style="text-align: center; align-items: center; margin-top: 30px;">
+            <p>'. get_string('select_algoritmo', 'mod_simulation')  .'</p> 
+            <label for="validationCustom04" class="form-label"></label>
+            <select class="form-select mb-4 container-fluid" id="validationCustom04" required style="width: auto;">
+                <option selected disabled value="">'. get_string('elegir', 'mod_simulation')  .'</option>
+                <option id="fifo_G">FIFO GLOBAL</option>
+                <option id="fifo_L">FIFO LOCAL</option>
+                <option id="lru_G">LRU GLOBAL</option>
+                <option id="lru_L">LRU LOCAL</option>
+                <option id="optimo_G">ÓPTIMO GLOBAL</option>
+                <option id="optimo_L">ÓPTIMO LOCAL</option>
+            </select>
+            
+            <div class="container-fluid mb-3" style="text-align: end; align-items: end; margin-top: 30px;">
+                <button id="botonSimular" class="btn letter" onclick="simularAlgoritmoMemoria()">'. get_string('simular_reemplazo', 'mod_simulation')  .'</button>
+            </div>
+        </div>
+
+
+        {{$ scripts }}
+            <script src="scripts/replace_main.js"></script>
+        {{/ scripts }}
+    </body>
+</html>

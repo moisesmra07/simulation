@@ -1,5 +1,3 @@
-let numProcesos = document.getElementById('filas').value
-let numRecursos = document.getElementById('columnas').value;
 
 function generarTablas() {
     let matrizAsignacion = crearMatrizAsignacion();
@@ -11,20 +9,6 @@ function generarTablas() {
     console.log("Matriz de Solicitud:", matrizSolicitud);
     console.log("Vector de Disponibilidad:", vectorDisponibilidad);
     console.log("Vector de Existencia:", vectorExistencia);
-}
-
-function leerTablas() {
-    let asignacion = leerMatrizAsignacion();
-    let solicitud = leerMatrizSolicitud();
-    let disponibilidad = leerVectorDisponibilidad();
-    let existencia = leerVectorExistencia();
-
-    console.log("Cantidad de Procesos:", numProcesos);
-    console.log("Cantidad de Recursos:", numRecursos);
-    console.log("Matriz de Asignación:", asignacion);
-    console.log("Matriz de Solicitud:", solicitud);
-    console.log("Vector de Disponibilidad:", disponibilidad);
-    console.log("Vector de Existencia:", existencia);
 }
 
 // Crear MA vacia
@@ -227,33 +211,36 @@ function leerVectorExistencia() {
 }
 
 function simularSLI() {
-
+    let numProcesos = document.getElementById('filas').value;
+    let numRecursos = document.getElementById('columnas').value;
     let asignacion = leerMatrizAsignacion();
     let solicitud = leerMatrizSolicitud();
     let disponibilidad = leerVectorDisponibilidad();
     let existencia = leerVectorExistencia();
+    let secuenciaProcesos = [];
 
-    // Función para liberar un proceso
-    function liberarProceso(proceso) {
-        for (let i = 0; i < numRecursos; i++) {
-            disponibilidad[i] += asignacion[proceso][i];
-        }
-    }
+    console.log("Cantidad de Procesos:", numProcesos);
+    console.log("Cantidad de Recursos:", numRecursos);
+    console.log("Matriz de Asignación:", asignacion);
+    console.log("Matriz de Solicitud:", solicitud);
+    console.log("Vector de Disponibilidad:", disponibilidad);
+    console.log("Vector de Existencia:", existencia);
 
-    // Función para calcular la disponibilidad inicial
     function calcularDisponibilidadInicial() {
-        let asignacionTotal = new Array(numRecursos).fill(0);
+        let vectorAsignacion = [];
         for (let j = 0; j < numRecursos; j++) {
             for (let i = 0; i < numProcesos; i++) {
-                asignacionTotal[j] += asignacion[i][j];
+                vectorAsignacion[j] += asignacion[i][j];
             }
         }
+
         for (let i = 0; i < numRecursos; i++) {
-            disponibilidad[i] = existencia[i] - asignacionTotal[i];
+            disponibilidad[i] = existencia[i] - vectorAsignacion[i];
         }
+
+        return disponibilidad;
     }
 
-    // Función para verificar si un proceso puede ser liberado
     function puedeSerLiberado(proceso) {
         for (let i = 0; i < numRecursos; i++) {
             if (solicitud[proceso][i] > disponibilidad[i]) {
@@ -263,40 +250,40 @@ function simularSLI() {
         return true;
     }
 
-    // Simulamos la secuencia libre de interbloqueo
-    let procesosLiberados = 0;
-    let resultados = document.getElementById("resultados");
-    resultados.innerHTML = ''; // Limpia los resultados anteriores
-
-    calcularDisponibilidadInicial();
-
-    while (procesosLiberados < numProcesos) {
-        let procesoLiberado = false;
+    function fueLiberado(proceso) {
         for (let i = 0; i < numProcesos; i++) {
-            if (puedeSerLiberado(i)) {
-                liberarProceso(i);
-                procesosLiberados++;
-                procesoLiberado = true;
-                let parrafo = document.createElement("p");
-                parrafo.innerHTML = `Proceso ${i} liberado`;
-                resultados.appendChild(parrafo);
-                break;
+            if (secuenciaProcesos[i] === proceso) {
+                return true;
             }
         }
-        if (!procesoLiberado) {
-            let parrafo = document.createElement("p");
-            parrafo.innerHTML = "No se puede liberar ningún proceso";
-            resultados.appendChild(parrafo);
-            break;
+        return false;
+    }
+
+    function calcularNuevaDisponibilidad(proceso) {
+        for (let i = 0; i < numRecursos; i++) {
+            disponibilidad[i] += asignacion[proceso][i];
+        }
+        return disponibilidad;
+    }
+
+    if (disponibilidad === 0) {
+        calcularDisponibilidadInicial();
+    }
+
+    while (secuenciaProcesos.length < numProcesos) {
+        for (let i = 0; i < numProcesos; i++) {
+            if (!fueLiberado(i) && puedeSerLiberado(i)) {
+                secuenciaProcesos.push(i);
+                disponibilidad = calcularNuevaDisponibilidad(i);
+            }
         }
     }
 
-    let parrafoFinal = document.createElement("p");
-    parrafoFinal.innerHTML = "Secuencia libre de interbloqueo terminada";
-    resultados.appendChild(parrafoFinal);
+    let sl = secuenciaProcesos.map(num => `P${num}`);
+    let secuencia = sl.join(", ");
+    console.log("Una Posible Secuencia Libre de Interbloqueo es: " + secuencia);
 
     let parrafoDisponibilidad = document.createElement("p");
-    parrafoDisponibilidad.innerHTML = `Disponibilidad final: ${disponibilidad.join(", ")}`;
+    parrafoDisponibilidad.innerHTML = `Una Posible Secuencia Libre de Interbloqueo es: ${secuencia}`;
     resultados.appendChild(parrafoDisponibilidad);
-
 }
