@@ -27,17 +27,21 @@
             <label for="validationCustom04" class="form-label" style="margin-top = 10px"></label>
             <select class="form-select mb-4 container-fluid" id="validationCustom04" required style="width: auto;">
                 <option selected disabled value=""> {{{elegir}}} </option>
-                <option id="fifo_G">FIFO GLOBAL</option>
-                <option id="fifo_L">FIFO LOCAL</option>
-                <option id="lru_G">LRU GLOBAL</option>
-                <option id="lru_L">LRU LOCAL</option>
-                <option id="optimo_G">ÓPTIMO GLOBAL</option>
-                <option id="optimo_L">ÓPTIMO LOCAL</option>
+                <option value="FIFO GLOBAL">FIFO GLOBAL</option>
+                <option value="FIFO LOCAL">FIFO LOCAL</option>
+                <option value="LRU GLOBAL">LRU GLOBAL</option>
+                <option value="LRU LOCAL">LRU LOCAL</option>
+                <option value="OPTIMO GLOBAL">ÓPTIMO GLOBAL</option>
+                <option value="OPTIMO LOCAL">ÓPTIMO LOCAL</option>
             </select>
 
             <div class="container-fluid mb-3" style="text-align: center; align-items: center; margin-top: 30px;">
-                <button id="botones" class="btn letter" onclick="simularAlgoritmoMemoria()"> {{{simular}}} </button>
+                <button id="botones" class="btn letter" onclick="simularFIFOlocal()"> {{{simular}}} </button>
             </div>
+        </div>
+
+        <div class="container-fluid mb-3" style="text-align: center; align-items: center; margin-top: 30px;"> 
+            <h5 id="resultado"> {{{resultado}}} </h5>
         </div>
 
 
