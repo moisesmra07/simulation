@@ -62,6 +62,7 @@ $string['secuenciaP'] = 'Secuencia de Procesos:';
 $string['complete'] = 'Complete con los datos necesarios para la simulación:';
 $string['simular_int'] = 'Simular algoritmo';
 $string['mostrar_results'] = 'Mostrar resultados';
+$string['answer_sequence'] = 'Una Posible secuencia Libre de Interbloqueo es:';
 
 //strings para memory.html
 $string['cartelMV'] = 'Memoria Virtual:';
@@ -79,10 +80,10 @@ $string['numpag'] = '# de páginas';
 $string['nummarco'] = '# de marcos';
 $string['desplV'] = 'Desplazamiento';
 $string['desplF'] = 'Desplazamiento';
-$string['cantP'] = 'Cantidad de peticiones';
 $string['tiempo'] = 'Instante de tiempo inicial';
 $string['select_algoritmo'] = 'Seleccionar algoritmo de reemplazo de páginas:';
 $string['calcular'] = 'Calcular';
 $string['simular_reemplazo'] = 'Simular reemplazo';
+$string['simular'] = 'Simular';
 $string['elegir'] = 'Elegir...';
 $string['peticiones'] = 'peticiones';

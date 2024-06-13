@@ -49,7 +49,8 @@ $data = array(
     'matrizS' => get_string('matrizS', 'mod_simulation'),
     'vectorD' => get_string('vectorD', 'mod_simulation'),
     'vectorE' => get_string('vectorE', 'mod_simulation'),
-    'simular' => get_string('simular_int', 'mod_simulation')
+    'simular' => get_string('simular_int', 'mod_simulation'),
+    'answer_sequence' => get_string('answer_sequence', 'mod_simulation')
 );
 
 echo $OUTPUT->header();

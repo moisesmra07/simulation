@@ -8,14 +8,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{{$ title }}Replace{{/ title }}</title>
         {{$ stylesheets }}
-            <link rel="stylesheet" href="styles/style.css">
+            <link rel="stylesheet" href="styles/memory.css">            
         {{/ stylesheets }}
     </head>
     <body>
+        <div class="table-container1">
+            <!-- Primera tabla (peticiones) -->
+            <table id="table1" ></table>
+        </div>
+
+        <div class="table-container2">       
+            <!-- Segunda tabla (reemplazo) -->
+            <table id="table2"></table>
+        </div>
 
         <div class="container-fluid mb-3" style="text-align: center; align-items: center; margin-top: 30px;">
-            <p> {{{select_algoritmo}}}</p> 
-            <label for="validationCustom04" class="form-label"></label>
+            <h5> {{{select_algoritmo}}} </h5> 
+            <label for="validationCustom04" class="form-label" style="margin-top = 10px"></label>
             <select class="form-select mb-4 container-fluid" id="validationCustom04" required style="width: auto;">
                 <option selected disabled value=""> {{{elegir}}} </option>
                 <option id="fifo_G">FIFO GLOBAL</option>
@@ -26,8 +35,8 @@
                 <option id="optimo_L">ÓPTIMO LOCAL</option>
             </select>
 
-            <div class="container-fluid mb-3" style="text-align: end; align-items: end; margin-top: 30px;">
-                <button id="botonSimular" class="btn letter" onclick="simularAlgoritmoMemoria()"> {{{simular_reemplazo}}} </button>
+            <div class="container-fluid mb-3" style="text-align: center; align-items: center; margin-top: 30px;">
+                <button id="botones" class="btn letter" onclick="simularAlgoritmoMemoria()"> {{{simular}}} </button>
             </div>
         </div>
 

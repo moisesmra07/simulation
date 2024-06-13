@@ -39,6 +39,7 @@
     max-width: 1200px;
     margin: 0 auto;
   }
+
   .column {
     flex: 50%;
     padding: 20px;
@@ -53,6 +54,7 @@
     margin-top: 5px;
     text-align: center;
   }
+  
   #a {
     color: #00135a;
     font-weight: bold;
@@ -83,26 +85,6 @@
   .letter {
     background-color: #00135a; 
     color: white;
-  }
-
-  #letreroMA {
-    color: #00135a; 
-  }
-
-  #letreroMS {
-    color: #00135a; 
-  }
-
-  #letreroVD {
-    color: #00135a; 
-  }
-
-  #letreroVE {
-    color: #00135a; 
-  }
-
-  #letreroSP {
-    color: #00135a; 
   }
 
   #resultados {

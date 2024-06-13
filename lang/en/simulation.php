@@ -63,6 +63,8 @@ $string['secuenciaP'] = 'Processes Sequence:';
 $string['complete'] = 'Complete with the data necessary for the simulation:';
 $string['simular_int'] = 'Simulate algorithm';
 $string['mostrar_results'] = 'Show results';
+$string['answer_sequence'] = 'A possible deadlock-free sequence is:';
+
 
 //strings para memory.html
 $string['cartelMV'] = 'Virtual Memory:';
@@ -84,5 +86,6 @@ $string['tiempo'] = 'Initial instant of time';
 $string['select_algoritmo'] = 'Select page replacement algorithm:';
 $string['calcular'] = 'Calculate';
 $string['simular_reemplazo'] = 'Simulate replacement';
+$string['simular'] = 'Simulate';
 $string['elegir'] = 'Choose...';
 $string['peticiones'] = 'requests';

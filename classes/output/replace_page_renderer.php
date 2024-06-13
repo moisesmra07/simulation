@@ -30,15 +30,9 @@ defined('MOODLE_INTERNAL') || die();
  
 class replace_page_renderer extends plugin_renderer_base {
  
-    public function render_replace_page($select, $elegir, $simular ) {
+    public function render_replace_page($data) {
         global $OUTPUT;
- 
-        $data = array(
-            'select' => $select,
-            'elegir' => $elegir,
-            'simular' => $simular,
-            '' => $
-        );
+
         $content = $OUTPUT->render_from_template('simulation/replace', $data);
  
         return $content;

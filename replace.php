@@ -39,9 +39,9 @@ $renderer = $PAGE->get_renderer('mod_simulation', 'replace_page');
 // Carga de datos necesarios para renderizar el template Mustache
 
 $data = array(
-    'select' => get_string('select_algoritmo', 'mod_simulation'),
+    'select_algoritmo' => get_string('select_algoritmo', 'mod_simulation'),
     'elegir' => get_string('elegir', 'mod_simulation'),
-    'simular' => get_string('simular_reemplazo', 'mod_simulation')
+    'simular' => get_string('simular', 'mod_simulation')
 );
 
 echo $OUTPUT->header();

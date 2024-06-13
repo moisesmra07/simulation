@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SLI</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/deadlock.css">
 </head>
 
 <body>
@@ -25,24 +26,24 @@
         <button class="btn letter" style="text-align:center" onclick="generarTablas()"> {{{view}}} </button>
     </div>
 
-    <h5 class="mb-3" style="text-align: center;"> {{{complete}}} </h5>
+    <h5 class="mb-3" id="letrero" style="text-align: center;"> {{{complete}}} </h5>
     <div class="row container-fluid">
-        <h5 id="letreroMA"> {{{matrizA}}} </h5>
+        <h5 id="letrero"> {{{matrizA}}} </h5>
         <div class="container-fluid mb-4" style="display: flex; justify-content: center; align-items: center;">
             <table id="matrizAsignacion"></table>
         </div>
 
-        <h5 id="letreroMS"> {{{matrizS}}} </h5>
+        <h5 id="letrero"> {{{matrizS}}} </h5>
         <div class="container-fluid mb-4" style="display: flex; justify-content: center; align-items: center;">
             <table id="matrizSolicitud"></table>
         </div>
 
-        <h5 id="letreroVD"> {{{vectorD}}} </h5>
+        <h5 id="letrero"> {{{vectorD}}} </h5>
         <div class="container-fluid mb-4" style="display: flex; justify-content: center; align-items: center;">
             <table id="vectorDisponibilidad"></table>
         </div>
 
-        <h5 id="letreroVE"> {{{vectorE}}} </h5>
+        <h5 id="letrero"> {{{vectorE}}} </h5>
         <div class="container-fluid mb-4" style="display: flex; justify-content: center; align-items: center;">
             <table id="vectorExistencia"></table>
         </div>
@@ -52,7 +53,10 @@
         <button class="btn letter" id="botonSimular" style="margin-left: 10px;" onclick="simularSLI()"> {{{simular}}} </button>
     </div>
 
-    <div id="resultados"> </div>
+
+    <h5 id="mensaje"> {{{answer_sequence}}}</h5>
+
+    <div id="tabla-container" style="margin-top"></div>
 
     <script src="scripts/sli_main.js"></script>
 

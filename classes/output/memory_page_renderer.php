@@ -30,29 +30,9 @@ defined('MOODLE_INTERNAL') || die();
  
 class memory_page_renderer extends plugin_renderer_base {
  
-    public function render_memory_page($cartelMV, $MV, $CP, $TP, $DL, $numpag, $desplV, $calcular, $cartelMF, $MF, $CM, $TM, $DF, $nummarco, $desplF, $calcular, $replace, $simular_reemplazo) {
+    public function render_memory_page($data) {
         global $OUTPUT;
- 
-        $data = array(
-            'cartelMV' => $cartelMV,
-            'MV' => $MV,
-            'CP' => $CP,
-            'TP' => $TP,
-            'DL' => $DL,
-            'numpag' => $numpag,
-            'desplV' => $desplV,
-            'calcular' => $calcular,
-            'cartelMF' => $cartelMF,
-            'MF' => $MF,
-            'CM' => $CM,
-            'TM' => $TM,
-            'DF' => $DF,
-            'nummarco' => $nummarco,
-            'desplF' => $desplF,
-            'calcular' => $calcular,
-            'replace' => $replace,
-            'simular_reemplazo' => $simular_reemplazo
-        );
+
         $content = $OUTPUT->render_from_template('simulation/memory', $data);
  
         return $content;

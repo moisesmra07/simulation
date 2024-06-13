@@ -1,4 +1,3 @@
-
 function generarTablas() {
     let matrizAsignacion = crearMatrizAsignacion();
     let matrizSolicitud = crearMatrizSolicitud();
@@ -279,11 +278,29 @@ function simularSLI() {
         }
     }
 
-    let sl = secuenciaProcesos.map(num => `P${num}`);
-    let secuencia = sl.join(", ");
-    console.log("Una Posible Secuencia Libre de Interbloqueo es: " + secuencia);
+    function mostrarSecuencia(secuencia) {
+        const tableContainer = document.getElementById("tabla-container");
+        const table = document.createElement("table");
 
-    let parrafoDisponibilidad = document.createElement("p");
-    parrafoDisponibilidad.innerHTML = `Una Posible Secuencia Libre de Interbloqueo es: ${secuencia}`;
-    resultados.appendChild(parrafoDisponibilidad);
+        let tr = document.createElement("tr");
+        secuencia.forEach((numero) => {
+            let td = document.createElement("td");
+            td.textContent = `P${numero}`;
+            tr.appendChild(td);
+        });
+
+        table.appendChild(tr);
+    
+        tableContainer.innerHTML = "";
+        tableContainer.appendChild(table);
+    }
+
+    function mostrarMensaje() {
+        var mensaje = document.getElementById("mensaje");
+        mensaje.style.display = "block";
+    }
+
+    mostrarMensaje();
+    mostrarSecuencia(secuenciaProcesos);
+
 }
