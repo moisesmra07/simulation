@@ -223,32 +223,169 @@ function simularFIFOglobal() {
     resultadoElemento.textContent = resultado;
 }
 
+function simularLRUlocal() {
+    let table = document.getElementById("table2");
+    let fallos = 0;
+    let reemplazos = 0;
+    let procesofinal = procesos.slice(); // Asumiendo que procesos es un arreglo definido fuera de la función
 
-function simular() {
-    let validationCustom04 = document.getElementById('validationCustom04');
-
-    switch (validationCustom04) {
-        case 'FIFO GLOBAL':
-            simularFIFOglobal();
-            break;
-        case 'FIFO LOCAL':
-            simularFIFOlocal();
-            break;
-        case 'LRU GLOBAL':
-            simularLRUglobal();
-            break;
-        case 'LRU LOCAL':
-            simularLRUlocal();
-            break;
-        case 'OPTIMO GLOBAL':
-            simularOPTIMOglobal();
-            break;
-        case 'OPTIMO LOCAL':
-            simularOPTIMOlocal();
-            break;
-
-        default:
-            console.log('Por favor selecciona una opción válida.');
-            break;
+    function procesoExiste(nombre, numPag) {
+        for (let i = 0; i < procesofinal.length; i++) {
+            if (procesofinal[i].nombre === nombre && procesofinal[i].numPag === numPag) {
+                return true;
+            }
+        }
+        return false;
     }
+
+    for (let i = 0; i < peticiones.length; i++) {
+        let existe = procesoExiste(peticiones[i].nombre, peticiones[i].numPag);
+
+        if (existe) {
+            table.rows[5].cells[i + 2].textContent = "-";
+            for (let j = 0; j < procesofinal.length; j++) {
+                if (procesofinal[j].nombre === peticiones[i].nombre && procesofinal[j].numPag === peticiones[i].numPag) {
+                    procesofinal[j].instante = peticiones[i].instante;
+                    break;
+                }
+            }
+        }
+
+        if (!existe && procesofinal.length < 4) {
+            procesofinal.push(peticiones[i]);
+            fallos++;
+            table.rows[5].cells[i + 2].textContent = "1F";
+        } else if (!existe && procesofinal.length >= 4) {
+            fallos++;
+            reemplazos++;
+            reemplazar(peticiones[i].nombre, peticiones[i].numPag, peticiones[i].instante);
+            table.rows[5].cells[i + 2].textContent = "1F-1R";
+        }
+
+        for (let j = 0; j < procesofinal.length; j++) {
+            table.rows[j + 1].cells[i + 2].textContent = procesofinal[j].toString();
+        }
+    }
+
+    function reemplazar(nombre, numPag, instante) {
+        let menortiempo = Infinity;
+        let pos = -1;
+
+        for (let i = 0; i < procesofinal.length; i++) {
+            if (procesofinal[i].nombre == nombre) {
+                if (procesofinal[i].instante < menortiempo) {
+                    menortiempo = procesofinal[i].instante;
+                    pos = i;
+                }
+            }
+        }
+        procesofinal[pos].nombre = nombre;
+        procesofinal[pos].numPag = numPag;
+        procesofinal[pos].instante = instante;
+    }
+
+    let resultado = `Se produjeron: ${fallos} Fallos y ${reemplazos} Reemplazos`;
+    let resultadoElemento = document.getElementById('resultado');
+    resultadoElemento.textContent = resultado;
+}
+
+function simularLRUglobal() {
+    let table = document.getElementById("table2");
+    let fallos = 0;
+    let reemplazos = 0;
+    let procesofinal = procesos.slice(); // Asumiendo que procesos es un arreglo definido fuera de la función
+
+    function procesoExiste(nombre, numPag) {
+        for (let i = 0; i < procesofinal.length; i++) {
+            if (procesofinal[i].nombre === nombre && procesofinal[i].numPag === numPag) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    for (let i = 0; i < peticiones.length; i++) {
+        let existe = procesoExiste(peticiones[i].nombre, peticiones[i].numPag);
+
+        if (existe) {
+            table.rows[5].cells[i + 2].textContent = "-";
+            for (let j = 0; j < procesofinal.length; j++) {
+                if (procesofinal[j].nombre === peticiones[i].nombre && procesofinal[j].numPag === peticiones[i].numPag) {
+                    procesofinal[j].instante = peticiones[i].instante;
+                    break;
+                }
+            }
+        }
+
+        if (!existe && procesofinal.length < 4) {
+            procesofinal.push(peticiones[i]);
+            fallos++;
+            table.rows[5].cells[i + 2].textContent = "1F";
+        } else if (!existe && procesofinal.length >= 4) {
+            fallos++;
+            reemplazos++;
+            reemplazar(peticiones[i].nombre, peticiones[i].numPag, peticiones[i].instante);
+            table.rows[5].cells[i + 2].textContent = "1F-1R";
+        }
+
+        for (let j = 0; j < procesofinal.length; j++) {
+            table.rows[j + 1].cells[i + 2].textContent = procesofinal[j].toString();
+        }
+    }
+
+    function reemplazar(nombre, numPag, instante) {
+        let menortiempo = Infinity;
+        let pos = -1;
+
+        for (let i = 0; i < procesofinal.length; i++) {
+                if (procesofinal[i].instante < menortiempo) {
+                    menortiempo = procesofinal[i].instante;
+                    pos = i;
+                }
+        }
+        procesofinal[pos].nombre = nombre;
+        procesofinal[pos].numPag = numPag;
+        procesofinal[pos].instante = instante;
+    }
+    
+    let resultado = `Se produjeron: ${fallos} Fallos y ${reemplazos} Reemplazos`;
+    let resultadoElemento = document.getElementById('resultado');
+    resultadoElemento.textContent = resultado;
+}
+
+let algoritmoActual = '';
+let tipoActual = '';
+
+function simularAlgoritmo(algoritmo, tipo) {
+    if (algoritmo !== algoritmoActual || tipo !== tipoActual) {
+        algoritmoActual = algoritmo;
+        tipoActual = tipo;
+
+        switch (algoritmo + tipo) {
+            case 'FIFOlocal':
+                simularFIFOlocal();
+                break;
+            case 'LRUlocal':
+                simularLRUlocal();
+                break;
+            case 'ÓPTIMOlocal':
+                simularOptimolocal();
+                break;
+            case 'FIFOglobal':
+                simularFIFOglobal();
+                break;
+            case 'LRUglobal':
+                simularLRUglobal();
+                break;
+            case 'ÓPTIMOglobal':
+                simularOptimoglobal();
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+function recargarPagina() {
+    location.reload();
 }

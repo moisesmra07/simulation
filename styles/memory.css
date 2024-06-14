@@ -46,5 +46,14 @@ th {
 #botones {
     color: white;
     background-color: #00135a;
-    }
+}
 
+.btn-custom {
+    background-color: #00135a;
+    color: white;
+}
+
+.btn-custom:hover {
+    background-color: #00135a;
+    opacity: 0.8;
+}

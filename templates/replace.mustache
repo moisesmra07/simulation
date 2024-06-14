@@ -22,25 +22,34 @@
             <table id="table2"></table>
         </div>
 
-        <div class="container-fluid mb-3" style="text-align: center; align-items: center; margin-top: 30px;">
-            <h5> {{{select_algoritmo}}} </h5> 
-            <label for="validationCustom04" class="form-label" style="margin-top = 10px"></label>
-            <select class="form-select mb-4 container-fluid" id="validationCustom04" required style="width: auto;">
-                <option selected disabled value=""> {{{elegir}}} </option>
-                <option value="FIFO GLOBAL">FIFO GLOBAL</option>
-                <option value="FIFO LOCAL">FIFO LOCAL</option>
-                <option value="LRU GLOBAL">LRU GLOBAL</option>
-                <option value="LRU LOCAL">LRU LOCAL</option>
-                <option value="OPTIMO GLOBAL">ÓPTIMO GLOBAL</option>
-                <option value="OPTIMO LOCAL">ÓPTIMO LOCAL</option>
-            </select>
-
-            <div class="container-fluid mb-3" style="text-align: center; align-items: center; margin-top: 30px;">
-                <button id="botones" class="btn letter" onclick="simularFIFOlocal()"> {{{simular}}} </button>
+        <h5 style="text-align: left;  margin-top: 20px;"><b> {{{select_algoritmo}}} </b></h5>
+    <div class="row mb-4" style="border: outset 2px darkblue;">
+        <div class="row container-fluid" style="display: flex; text-align: center; align-items: center;">
+            <div class="col-4">
+                <button id="btnFIFOlocal" class="btn letter" onclick="simularAlgoritmo('FIFO', 'local')"> FIFO LOCAL </button>
+            </div>
+            <div class="col-4">
+                <button id="btnLRUlocal" class="btn letter" onclick="simularAlgoritmo('LRU', 'local')"> LRU LOCAL </button>
+            </div>
+            <div class="col-4">
+                <button id="btnOptimolocal" class="btn letter" onclick="simularAlgoritmo('ÓPTIMO', 'local')"> ÓPTIMO LOCAL </button>
             </div>
         </div>
 
-        <div class="container-fluid mb-3" style="text-align: center; align-items: center; margin-top: 30px;"> 
+        <div class="row container-fluid" style="display: flex; text-align: center; align-items: center;">
+            <div class="col-4">
+                <button id="btnFIFOglobal" class="btn letter" onclick="simularAlgoritmo('FIFO', 'global')"> FIFO GLOBAL </button>
+            </div>
+            <div class="col-4">
+                <button id="btnLRUglobal" class="btn letter" onclick="simularAlgoritmo('LRU', 'global')"> LRU GLOBAL </button>
+            </div>
+            <div class="col-4">
+                <button id="btnOptimoglobal" class="btn letter" onclick="simularAlgoritmo('ÓPTIMO', 'global')"> ÓPTIMO GLOBAL </button>
+            </div>
+        </div>
+    </div>
+
+        <div class="container-fluid mb-3" style="text-align: center; align-items: center; margin-top: 40px;"> 
             <h5 id="resultado"> {{{resultado}}} </h5>
         </div>
 
