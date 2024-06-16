@@ -198,6 +198,7 @@ $(document).ready(function () {
         let disponibilidad = leerVectorDisponibilidad();
         let existencia = leerVectorExistencia();
         let secuenciaProcesos = [];
+        let iteraciones = [];
 
         function calcularDisponibilidadInicial() {
             let vectorAsignacion = Array(numRecursos).fill(0);
@@ -241,8 +242,17 @@ $(document).ready(function () {
         while (secuenciaProcesos.length < numProcesos) {
             for (let i = 0; i < numProcesos; i++) {
                 if (!fueLiberado(i) && puedeSerLiberado(i)) {
+                    let solicitudProceso = solicitud[i];
+                    let disponibilidadActual = [...disponibilidad];
                     secuenciaProcesos.push(i);
                     disponibilidad = calcularNuevaDisponibilidad(i);
+
+                    iteraciones.push({
+                        proceso: `P${i}`,
+                        asignacion: asignacion[i],
+                        disponibilidadActual: disponibilidadActual,
+                        nuevaDisponibilidad: [...disponibilidad]
+                    });
                 }
             }
         }
@@ -263,11 +273,27 @@ $(document).ready(function () {
             tableContainer.append(table);
         }
 
+        function mostrarIteraciones(iteraciones) {
+            const iteracionesContainer = $("#iteraciones-container");
+            iteracionesContainer.empty();
+    
+            iteraciones.forEach((iteracion, index) => {
+                let div = $("<div></div>").addClass("iteracion");
+                div.append(`<p>Iteración ${index + 1}: Proceso ${iteracion.proceso}</p>`);
+                div.append(`<p>Asignación de ${iteracion.proceso}: [${iteracion.asignacion.join(", ")}]</p>`);
+                div.append(`<p>Disponibilidad anterior: [${iteracion.disponibilidadActual.join(", ")}]</p>`);
+                div.append(`<p>Liberar recursos de ${iteracion.proceso}: Nueva Disponibilidad = [${iteracion.nuevaDisponibilidad.join(", ")}]</p>`);
+                iteracionesContainer.append(div);
+            });
+        }
+
         function mostrarMensaje() {
-            $("#mensaje").show();
+            $("#mensaje1").show();
+            $("#mensaje2").show(); 
         }
 
         mostrarMensaje();
+        mostrarIteraciones(iteraciones);
         mostrarSecuencia(secuenciaProcesos);
     }
 

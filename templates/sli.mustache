@@ -6,60 +6,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SLI</title>
-    <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/deadlock.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="scripts/sli_main.js"></script>
 </head>
 
 <body>
-    <h5 class="mb-3" style="text-align: center;"> {{{datos}}} </h5>
+    <h5 class="mb-3" style="text-align: center;">{{{datos}}}</h5>
     <div class="row mb-4">
         <div class="col-6 mb-3" style="display: flex; justify-content: center; align-items: center;">
-            <input type="number" id="filas" placeholder=" {{{procesos}}} " style="margin-inline-start: 10px;">
+            <input type="number" id="filas" placeholder="{{{procesos}}}" style="margin-inline-start: 10px;">
         </div>
 
-        <div class="col" style="display: flex; justify-content: center; align-items: center;">
-            <input type="number" id="columnas" placeholder=" {{{recursos}}} " style="margin-inline-start: 10px;">
+        <div class="col mb-3" style="display: flex; justify-content: center; align-items: center;">
+            <input type="number" id="columnas" placeholder="{{{recursos}}}" style="margin-inline-start: 10px;">
         </div>
     </div>
 
     <div class="mb-3" style="display: flex; justify-content: center; align-items: center;">
-        <button class="btn letter" style="text-align:center" onclick="generarTablas()"> {{{view}}} </button>
+        <button class="btn letter" id="generar-tablas" style="text-align:center">{{{view}}}</button>
     </div>
 
-    <h5 class="mb-3" id="letrero" style="text-align: center;"> {{{complete}}} </h5>
+    <h5 class="mb-3" id="letrero" style="text-align: center;">{{{complete}}}</h5>
     <div class="row container-fluid">
-        <h5 id="letrero"> {{{matrizA}}} </h5>
+        <h5>{{{matrizA}}}</h5>
         <div class="container-fluid mb-4" style="display: flex; justify-content: center; align-items: center;">
             <table id="matrizAsignacion"></table>
         </div>
 
-        <h5 id="letrero"> {{{matrizS}}} </h5>
+        <h5>{{{matrizS}}}</h5>
         <div class="container-fluid mb-4" style="display: flex; justify-content: center; align-items: center;">
             <table id="matrizSolicitud"></table>
         </div>
 
-        <h5 id="letrero"> {{{vectorD}}} </h5>
+        <h5>{{{vectorD}}}</h5>
         <div class="container-fluid mb-4" style="display: flex; justify-content: center; align-items: center;">
             <table id="vectorDisponibilidad"></table>
         </div>
 
-        <h5 id="letrero"> {{{vectorE}}} </h5>
+        <h5>{{{vectorE}}}</h5>
         <div class="container-fluid mb-4" style="display: flex; justify-content: center; align-items: center;">
             <table id="vectorExistencia"></table>
         </div>
     </div>
 
     <div class="container-fluid mb-4" style="display: flex; justify-content: center; align-items: center;">
-        <button class="btn letter" id="botonSimular" style="margin-left: 10px;" onclick="simularSLI()"> {{{simular}}} </button>
+        <button class="btn letter" id="simular-sli" style="margin-left: 10px;">{{{simular}}}</button>
     </div>
 
+    <h5 id="mensaje1" style="display:none;">{{{answer}}}</h5>
 
-    <h5 id="mensaje"> {{{answer_sequence}}}</h5>
+    <div id="iteraciones-container" class="container-fluid mb-4"></div>
 
-    <div id="tabla-container" style="margin-top"></div>
+    <h5 id="mensaje2" style="display:none;">{{{answer_sequence}}}</h5>
 
-    <script src="scripts/sli_main.js"></script>
-
+    <div id="tabla-container" style="margin-top: 20px;"></div>
 </body>
 
 </html>

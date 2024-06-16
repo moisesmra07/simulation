@@ -63,7 +63,8 @@ $string['secuenciaP'] = 'Processes Sequence:';
 $string['complete'] = 'Complete with the data necessary for the simulation:';
 $string['simular_int'] = 'Simulate algorithm';
 $string['mostrar_results'] = 'Show results';
-$string['answer_sequence'] = 'A possible deadlock-free sequence is:';
+$string['answer_sequence'] = 'A possible Deadlock-Free Sequence (SLI) is:';
+$string['answer'] = 'Iterations:';
 
 //strings para calculate.php
 $string['calculate_memory'] = 'Virtual Memory Calculations';

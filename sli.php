@@ -50,6 +50,7 @@ $data = array(
     'vectorD' => get_string('vectorD', 'mod_simulation'),
     'vectorE' => get_string('vectorE', 'mod_simulation'),
     'simular' => get_string('simular_int', 'mod_simulation'),
+    'answer' => get_string('answer', 'mod_simulation'),
     'answer_sequence' => get_string('answer_sequence', 'mod_simulation')
 );
 

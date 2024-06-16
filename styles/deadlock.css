@@ -1,43 +1,134 @@
-/*
-#mensaje {
-    display: none;
-    color: #00135a; 
-    margin-top: 10px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+h5 {
+    color: #333;
+}
+
+.container-fluid {
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.col-6, .col {
+    flex: 1;
+    padding: 0 15px;
+}
+
+.mb-3, .mb-4 {
+    margin-bottom: 1rem;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-inline-start: 10px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input[type="number"]:focus {
+    border-color: #0f6cbf;
+}
+
+button.btn {
+    padding: 10px 20px;
+    background-color: #0f6cbf;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button.btn:hover {
+    background-color: #0f6cbf;
 }
 
 table {
+    width: 100%;
     border-collapse: collapse;
-    width: 50%;
-    margin: 20px auto;
-    margin-top: 10px;
+    margin: 10px 0;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-th, td {
+table tr {
+    border-bottom: 1px solid #0f6cbf;
+    border-top: 1px solid #0f6cbf;
+    border-right: 1px solid #0f6cbf;
+    border-left: 1px solid #0f6cbf;
+}
+
+table td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #0f6cbf;
+    border-top: 1px solid #0f6cbf;
+    border-right: 1px solid #0f6cbf;
+    border-left: 1px solid #0f6cbf;
+}
+
+table input[type="number"] {
+    width: 100%;
+    border: none;
+    padding: 8px;
+    text-align: center;
+    outline: none;
+}
+
+table input[type="number"]:focus {
     border: 1px solid #00135a;
-    padding: 8px;
-    text-align: center;
 }
 
-th {
-    background-color: #f2f2f2;
-}
-
-#letrero {
-    color: #00135a; 
-}
-*/
-
-table {
-    border-collapse: collapse;
-    margin-bottom: 20px;
-}
-table, th, td {
-    border: 1px solid black;
-    padding: 8px;
-    text-align: center;
-}
-#mensaje {
-    display: none;
+#mensaje1 {
+    color: black;
+    font-size: 1.2rem;
     font-weight: bold;
+    text-align: left;
+    display: none;
+}
+
+#mensaje2 {
+    color: black;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: left;
+    display: none;
+}
+
+#tabla-container, #iteraciones-container {
+    margin-top: 20px;
+}
+
+.iteracion {
+    padding: 10px;
     margin-bottom: 10px;
+    border-radius: 4px;
+    border-color: 1px solid #0f6cbf;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.iteracion p {
+    margin-bottom: 5px;
+    color: black;
 }

@@ -63,7 +63,8 @@ $string['secuenciaP'] = 'Secuencia de Procesos:';
 $string['complete'] = 'Complete con los datos necesarios para la simulación:';
 $string['simular_int'] = 'Simular algoritmo';
 $string['mostrar_results'] = 'Mostrar resultados';
-$string['answer_sequence'] = 'Una Posible secuencia Libre de Interbloqueo es:';
+$string['answer_sequence'] = 'Una posible Secuencia Libre de Interbloqueo (SLI) es:';
+$string['answer'] = 'Iteraciones:';
 
 //strings para calculate.php
 $string['calcular_memoria'] = 'Cálculos de la Memoria Virtual';
