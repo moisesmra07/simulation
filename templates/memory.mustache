@@ -1,91 +1,33 @@
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Memory</title>
-    <link rel="stylesheet" href="styles/style.css">
-</head>
+{{% BLOCKS }}
+<!DOCTYPE html>
+<html lang="en">
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{$ title }}Memory{{/ title }}</title>
+        {{$ stylesheets }}
+            <link rel="stylesheet" href="styles/style.css">
+        {{/ stylesheets }}
+    </head>
+    <body>
+        <div class="container02">
+            <div class="column">
+                <h5 id="h5" > {{{calculate_memory}}} </h5> <br>
+                <img id="pix00" src="/mod/simulation/pix/icon_deadlock.png" alt="calculos"> <br>
+                <a id="botonSimular" class="btn letter" href= "{{{calculate_url}}}" > {{{explore}}} </a>
+            </div>
 
-<body>
-    <h5 style="text-align: left;  margin-top: 20px;"><b> {{{cartelMV}}} </b></h5>
-    <div class="row mb-4" style="border:outset 2px darkblue;">
-        <div class="row container-fluid" style="display: flex; text-align: center; align-items: center;">
-            <div class="col-4">
-                <p style="text-align: center; margin-top: 30px;"> {{{MV}}} </p>
-                <input type="number" id="MV" placeholder="MV" style="text-align: center;">
-            </div>
-            <div class="col-4">
-                <p style="text-align: center; margin-top: 30px"> {{{CP}}} </p>
-                <input type="number" id="CP" placeholder="CP" style="text-align: center;">
-            </div>
-            <div class="col-4">
-                <p style="text-align: center; margin-top: 30px"> {{{TP}}} </p>
-                <input type="number" id="TP" placeholder="TP" style="text-align: center;">
+            <div class="column">
+                <h5 id="h5"> {{{simular_reemplazo}}} </h5> <br>
+                <img id="pix00" src="/mod/simulation/pix/icon_memory.png" alt="reemplazo"> <br>
+                <a id="botonSimular" class="btn letter" href= "{{{replace_url}}}" > {{{explore}}} </a>
             </div>
         </div>
 
-        <div class="row container-fluid" style="display: flex; text-align: center; align-items: center;">
-            <div class="col-4">
-                <p style="text-align: center; margin-top: 30px;"> {{{DL}}} </p>
-                <input type="number" id="DL" placeholder="DL(bits)" style="text-align: center;">
-            </div>
-            <div class="col-4">
-                <p style="text-align: center; margin-top: 30px"> {{{numpag}}} </p>
-                <input type="number" id="#pag" placeholder="#pag(bits)" style="text-align: center;">
-            </div>
-            <div class="col-4">
-                <p style="text-align: center; margin-top: 30px"> {{{desplV}}} </p>
-                <input type="number" id="desplzV" placeholder="dspl(bits)" style="text-align: center;">
-            </div>
-        </div>
-
-        <div class="container-fluid mb-3" style="text-align: end; align-items: cend; margin-top: 30px;">
-            <button id="botonMV" class="btn letter" onclick="calcularMemoriaVirtual()"> {{{calcular}}} </button>
-        </div>
-
-    </div>
-
-    <h5 style="text-align: left;  margin-top: 20px;"><b> {{{cartelMF}}} </b></h5>
-    <div class="row mb-4" style="border:outset 2px darkblue;">
-        <div class="row container-fluid" style="display: flex; text-align: center; align-items: center;">
-            <div class="col-4">
-                <p style="text-align: center; margin-top: 30px;"> {{{MF}}} </p>
-                <input type="number" id="MF" placeholder="MF" style="text-align: center;">
-            </div>
-            <div class="col-4">
-                <p style="text-align: center; margin-top: 30px"> {{{CM}}} </p>
-                <input type="number" id="CM" placeholder="CM" style="text-align: center;">
-            </div>
-            <div class="col-4">
-                <p style="text-align: center; margin-top: 30px"> {{{TM}}}</p>
-                <input type="number" id="TM" placeholder="TM" style="text-align: center;">
-            </div>
-        </div>
-
-        <div class="row container-fluid" style="display: flex; text-align: center; align-items: center;">
-            <div class="col-4">
-                <p style="text-align: center; margin-top: 30px;"> {{{DF}}} </p>
-                <input type="number" id="DF" placeholder="DF(bits)" style="text-align: center;">
-            </div>
-            <div class="col-4">
-                <p style="text-align: center; margin-top: 30px"> {{{nummarco}}} </p>
-                <input type="number" id="#marcos" placeholder="#m(bits)" style="text-align: center;">
-            </div>
-            <div class="col-4">
-                <p style="text-align: center; margin-top: 30px"> {{{desplF}}} </p>
-                <input type="number" id="desplzF" placeholder="dspl(bits)" style="text-align: center;">
-            </div>
-        </div>
-
-        <div class="container-fluid mb-3" style="text-align: end; align-items: end; margin-top: 30px;">
-            <button id="botonMF" class="btn letter" onclick="calcularMemoriaFisica()"> {{{calcular}}} </button>
-            </div>
-    </div>
-
-    <div class="container-fluid mb-3" style="text-align: center; align-items: center; margin-top: 30px;">
-        <a id="botonSimular" class="btn letter" href= "{{{replace}}}" > {{{simular_reemplazo}}} </a>
-    </div>
-
-    <script src="scripts/memory_main.js"></script>
-
-</body>
+        {{$ scripts }}
+            <script src="scripts/script.js"></script>
+        {{/ scripts }}
+    </body>
+</html>

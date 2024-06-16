@@ -1,0 +1,82 @@
+{{% BLOCKS }}
+<!DOCTYPE html>
+<html lang="en">
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{$ title }}Virtual Memory Calculations{{/ title }}</title>
+        {{$ stylesheets }}
+            <link rel="stylesheet" href="styles/style.css">
+            <link rel="stylesheet" href="styles/calculos.css">            
+        {{/ stylesheets }}
+    </head>
+    <body>
+        <h5 class="text-left mt-4"><b> {{{ex1}}} </b></h5>
+        <div class="mb-4 p-3 border border-dark rounded">
+            <div class="row text-center align-items-center">
+                <div class="col-4">
+                    <p class="margin-top"> {{{DF}}} </p>
+                    <input type="number" id="ex1DF" placeholder="DF" class="form-control centered-input">
+                </div>
+                <div class="col-4">
+                    <p class="margin-top"> {{{CP}}} </p>
+                    <input type="number" id="ex1CP" placeholder="CP" class="form-control centered-input">
+                </div>
+                <div class="col-4">
+                    <p class="margin-top"> {{{TP}}} </p>
+                    <input type="number" id="ex1TP" placeholder="TP" class="form-control centered-input">
+                </div>
+            </div>
+            <div class="text-right mt-3">
+                <button id="calcularex1" class="btn btn-primary" onclick="calcularEjercicio1()"> {{{calcular}}} </button>
+            </div>
+            <div class="text-right mt-3">
+                <button id="resetButton" class="btn btn-secondary ml-2" onclick="resetPage1()"> {{{reset}}} </button>
+            </div>
+            <div id="ex1error" class="alert alert-danger d-none mt-3"></div>
+            <div class="text-center mt-3">
+                <p id="ex1resultCM"></p>
+                <p id="ex1resultTM"></p>
+                <p id="ex1resultMV"></p>
+            </div>
+        </div>
+
+    <h5 class="text-left mt-4"><b> {{{ex2}}} </b></h5>
+    <div class="mb-4 p-3 border border-dark rounded">
+        <div class="row text-center align-items-center">
+            <div class="col-4">
+                <p class="margin-top"> {{{DL}}} </p>
+                <input type="number" id="ex2DL" placeholder="DL" class="form-control centered-input">
+            </div>
+            <div class="col-4">
+                <p class="margin-top"> {{{CM}}} </p>
+                <input type="number" id="ex2CM" placeholder="CM" class="form-control centered-input">
+            </div>
+            <div class="col-4">
+                <p class="margin-top"> {{{TM}}} </p>
+                <input type="number" id="ex2TM" placeholder="TM" class="form-control centered-input">
+            </div>
+        </div>
+        <div class="text-right mt-3">
+            <button id="calcularex2" class="btn btn-primary" onclick="calcularEjercicio2()"> {{{calcular}}} </button>
+        </div>
+        <div class="text-right mt-3">
+            <button id="resetButton" class="btn btn-secondary ml-2" onclick="resetPage2()"> {{{reset}}} </button>
+        </div>
+        <div id="ex2error" class="alert alert-danger d-none mt-3"></div>
+        <div class="text-center mt-3">
+            <p id="ex2resultCP"></p>
+            <p id="ex2resultTP"></p>
+            <p id="ex2resultMF"></p>
+        </div>
+    </div>
+
+
+        {{$ scripts }}
+            <script src="scripts/memory_main.js"></script>
+            <script src="scripts/calculos_main.js"></script>
+        {{/ scripts }}
+    </body>
+</html>

@@ -44,7 +44,7 @@ $string['gest_interbloqueo'] = 'Deadlock Management';
 $string['gest_memoria'] = 'Memory Management';
 $string['explore'] = 'Explore';
 
-//strings para deadlock.html
+//strings para deadlock.php
 $string['datos_interbloqueo'] = 'Enter the number of Processes and Resources:';
 $string['procesos'] = 'Processes';
 $string['recursos'] = 'Resources';
@@ -65,11 +65,10 @@ $string['simular_int'] = 'Simulate algorithm';
 $string['mostrar_results'] = 'Show results';
 $string['answer_sequence'] = 'A possible deadlock-free sequence is:';
 
-
-//strings para memory.html
-$string['cartelMV'] = 'Virtual Memory:';
-$string['cartelMF'] = 'Physical Memory:';
-$string['cartelRP'] = 'Page Replacement:';
+//strings para calculate.php
+$string['calculate_memory'] = 'Virtual Memory Calculations';
+$string['ex1'] = 'Calculate CM, TM, MV:';
+$string['ex2'] = 'Calculate CP, TP, MF:';
 $string['MV'] = 'Virtual Memory Size';
 $string['MF'] = 'Physical Memory Size';
 $string['CP'] = 'Number of pages';
@@ -80,12 +79,12 @@ $string['DL'] = 'Logical Addresses';
 $string['DF'] = 'Physical Addresses';
 $string['numpag'] = '# of pages';
 $string['nummarco'] = '# of frames';
-$string['desplV'] = 'Displacement';
-$string['desplF'] = 'Displacement';
-$string['tiempo'] = 'Initial instant of time';
-$string['select_algoritmo'] = 'Select page replacement algorithm:';
+$string['despl'] = 'Displacement';
 $string['calcular'] = 'Calculate';
+$string['reset'] = 'Reset Default Values';
+
+//strings para replace.php
+$string['select_algoritmo'] = 'Select page replacement algorithm:';
 $string['simular_reemplazo'] = 'Simulate replacement';
 $string['simular'] = 'Simulate';
-$string['elegir'] = 'Choose...';
 $string['peticiones'] = 'requests';

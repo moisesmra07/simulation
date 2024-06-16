@@ -1,32 +1,37 @@
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Home</title>
-    <link rel="stylesheet" href="styles/style.css">
-</head>
-
-<body>
-    <div id="s01"> 
-        <h4> {{{intro}}} </h4>
-    </div>
-
-    <div class="container02">
-        <div class="column">
-            <h5 id="h5" > {{{gest_interbloqueo}}} </h5> <br>
-            <img id="pix00" src="/mod/simulation/pix/icon_deadlock.png" alt="deadlock"> <br>
-            <a id="a" href="{{{deadlock_url}}}"> {{{explore}}} </a>
+{{% BLOCKS }}
+<!DOCTYPE html>
+<html lang="en">
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{$ title }}Home{{/ title }}</title>
+        {{$ stylesheets }}
+            <link rel="stylesheet" href="styles/style.css">
+        {{/ stylesheets }}
+    </head>
+    <body>
+        <div id="s01"> 
+            <h4> {{{intro}}} </h4>
         </div>
 
-        <div class="column">
-            <h5 id="h5"> {{{gest_memoria}}} </h5> <br>
-            <img id="pix00" src="/mod/simulation/pix/icon_memory.png" alt="memory"> <br>
-            <a id="a" href="{{{memory_url}}}"> {{{explore}}} </a>
+        <div class="container02">
+            <div class="column">
+                <h5 id="h5" > {{{gest_interbloqueo}}} </h5> <br>
+                <img id="pix00" src="/mod/simulation/pix/icon_deadlock.png" alt="deadlock"> <br>
+                <a id="a" href="{{{deadlock_url}}}"> {{{explore}}} </a>
+            </div>
+
+            <div class="column">
+                <h5 id="h5"> {{{gest_memoria}}} </h5> <br>
+                <img id="pix00" src="/mod/simulation/pix/icon_memory.png" alt="memory"> <br>
+                <a id="a" href="{{{memory_url}}}"> {{{explore}}} </a>
+            </div>
         </div>
 
-    </div>
-
-        <script src="scripts/script.js"></script>
-        
-</body>
-
+        {{$ scripts }}
+            <script src="scripts/script.js"></script>
+        {{/ scripts }}
+    </body>
+</html>

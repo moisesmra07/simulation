@@ -18,6 +18,7 @@
  * Plugin strings are defined here.
  *
  * @package   mod_simulation
+ * @category    string
  * @copyright 2024, Moises Rodriguez <mrdguezalvz@gmail.com>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -43,7 +44,7 @@ $string['gest_interbloqueo'] = 'Gestion de Interbloqueo';
 $string['gest_memoria'] = 'Gestion de Memoria';
 $string['explore'] = 'Explorar';
 
-//strings para deadlock.html
+//strings para deadlock.php
 $string['datos_interbloqueo'] = 'Introduzca la cantidad de Procesos y Recursos:';
 $string['procesos'] = 'Procesos';
 $string['recursos'] = 'Recursos';
@@ -64,10 +65,10 @@ $string['simular_int'] = 'Simular algoritmo';
 $string['mostrar_results'] = 'Mostrar resultados';
 $string['answer_sequence'] = 'Una Posible secuencia Libre de Interbloqueo es:';
 
-//strings para memory.html
-$string['cartelMV'] = 'Memoria Virtual:';
-$string['cartelMF'] = 'Memoria Física:';
-$string['cartelRP'] = 'Reemplazo de Páginas:';
+//strings para calculate.php
+$string['calcular_memoria'] = 'Cálculos de la Memoria Virtual';
+$string['ex1'] = 'Calcular CM, TM, MV:';
+$string['ex2'] = 'Calcular CP, TP, MF:';
 $string['MV'] = 'Tamaño de Memoria Virtual';
 $string['MF'] = 'Tamaño de Memoria Física';
 $string['CP'] = 'Cantidad de páginas';
@@ -78,12 +79,12 @@ $string['DL'] = 'Direcciones Lógicas';
 $string['DF'] = 'Direcciones Físicas';
 $string['numpag'] = '# de páginas';
 $string['nummarco'] = '# de marcos';
-$string['desplV'] = 'Desplazamiento';
-$string['desplF'] = 'Desplazamiento';
-$string['tiempo'] = 'Instante de tiempo inicial';
-$string['select_algoritmo'] = 'Seleccionar algoritmo de reemplazo de páginas:';
+$string['despl'] = 'Desplazamiento';
 $string['calcular'] = 'Calcular';
+$string['reset'] = 'Restablecer valores predetermindos';
+
+//strings para replace.html
+$string['select_algoritmo'] = 'Seleccionar algoritmo de reemplazo de páginas:';
 $string['simular_reemplazo'] = 'Simular reemplazo';
 $string['simular'] = 'Simular';
-$string['elegir'] = 'Elegir...';
 $string['peticiones'] = 'peticiones';

@@ -104,10 +104,12 @@ createTable();
 pintarUltimaFila();
 
 function simularFIFOlocal() {
-    let table = document.getElementById("table2");
+    let table = $("#table2")[0];
     let fallos = 0;
     let reemplazos = 0;
     let procesofinal = procesos.slice();
+    let currentPeticion = 0;
+    let currentRow = 0;
 
     function procesoExiste(nombre, numPag) {
         for (let i = 0; i < procesofinal.length; i++) {
@@ -116,30 +118,6 @@ function simularFIFOlocal() {
             }
         }
         return false;
-    }
-
-    for (let i = 0; i < peticiones.length; i++) {
-        let existe = procesoExiste(peticiones[i].nombre, peticiones[i].numPag);
-
-        if (existe) {
-            table.rows[5].cells[i + 2].textContent = "-";
-        }
-
-        if (!existe && procesofinal.length < 4) {
-            procesofinal.push(peticiones[i]);
-            fallos++;
-            table.rows[5].cells[i + 2].textContent = "1F";
-
-        } else if (!existe && procesofinal.length >= 4) {
-            fallos++;
-            reemplazos++;
-            reemplazar(peticiones[i].nombre, peticiones[i].numPag, peticiones[i].instante);
-            table.rows[5].cells[i + 2].textContent = "1F-1R";
-        }
-
-        for (let j = 0; j < procesofinal.length; j++) {
-            table.rows[j + 1].cells[i + 2].textContent = procesofinal[j].toString();
-        }
     }
 
     function reemplazar(nombre, numPag, instante) {
@@ -159,16 +137,48 @@ function simularFIFOlocal() {
         procesofinal[pos].instante = instante;
     }
 
-    let resultado = `Se produjeron: ${fallos} Fallos y ${reemplazos} Reemplazos `;
-    let resultadoElemento = document.getElementById('resultado');
-    resultadoElemento.textContent = resultado;
+    let intervalId = setInterval(() => {
+        if (currentPeticion < peticiones.length) {
+            let existe = procesoExiste(peticiones[currentPeticion].nombre, peticiones[currentPeticion].numPag);
+
+            if (currentRow === 0) {
+                if (existe) {
+                    $($(table.rows[5].cells[currentPeticion + 2])).text("-");
+                } else if (!existe && procesofinal.length < 4) {
+                    procesofinal.push(peticiones[currentPeticion]);
+                    fallos++;
+                    $($(table.rows[5].cells[currentPeticion + 2])).text("1F");
+                } else if (!existe && procesofinal.length >= 4) {
+                    fallos++;
+                    reemplazos++;
+                    reemplazar(peticiones[currentPeticion].nombre, peticiones[currentPeticion].numPag, peticiones[currentPeticion].instante);
+                    $($(table.rows[5].cells[currentPeticion + 2])).text("1F-1R");
+                }
+            }
+
+            if (currentRow < procesofinal.length) {
+                $($(table.rows[currentRow + 1].cells[currentPeticion + 2])).text(procesofinal[currentRow].toString());
+                currentRow++;
+            } else {
+                currentRow = 0;
+                currentPeticion++;
+            }
+        } else {
+            clearInterval(intervalId);
+            let resultado = `Se produjeron: ${fallos} Fallos y ${reemplazos} Reemplazos `;
+            $("#resultado").text(resultado);
+            console.log('Proceso completado');
+        }
+    }, 500);
 }
 
 function simularFIFOglobal() {
-    let table = document.getElementById("table2");
+    let table = $("#table2")[0];
     let fallos = 0;
     let reemplazos = 0;
     let procesofinal = procesos.slice();
+    let currentPeticion = 0;
+    let currentRow = 0;
 
     function procesoExiste(nombre, numPag) {
         for (let i = 0; i < procesofinal.length; i++) {
@@ -177,30 +187,6 @@ function simularFIFOglobal() {
             }
         }
         return false;
-    }
-
-    for (let i = 0; i < peticiones.length; i++) {
-        let existe = procesoExiste(peticiones[i].nombre, peticiones[i].numPag);
-
-        if (existe) {
-            table.rows[5].cells[i + 2].textContent = "-";
-        }
-
-        if (!existe && procesofinal.length < 4) {
-            procesofinal.push(peticiones[i]);
-            fallos++;
-            table.rows[5].cells[i + 2].textContent = "1F";
-
-        } else if (!existe && procesofinal.length >= 4) {
-            fallos++;
-            reemplazos++;
-            reemplazar(peticiones[i].nombre, peticiones[i].numPag, peticiones[i].instante);
-            table.rows[5].cells[i + 2].textContent = "1F-1R";
-        }
-
-        for (let j = 0; j < procesofinal.length; j++) {
-            table.rows[j + 1].cells[i + 2].textContent = procesofinal[j].toString();
-        }
     }
 
     function reemplazar(nombre, numPag, instante) {
@@ -218,53 +204,59 @@ function simularFIFOglobal() {
         procesofinal[pos].instante = instante;
     }
 
-    let resultado = `Se produjeron: ${fallos} Fallos y ${reemplazos} Reemplazos `;
-    let resultadoElemento = document.getElementById('resultado');
-    resultadoElemento.textContent = resultado;
+    let intervalId = setInterval(() => {
+        if (currentPeticion < peticiones.length) {
+            let existe = procesoExiste(peticiones[currentPeticion].nombre, peticiones[currentPeticion].numPag);
+
+            if (currentRow === 0) {
+                if (existe) {
+                    $($(table.rows[5].cells[currentPeticion + 2])).text("-");
+                } else if (!existe && procesofinal.length < 4) {
+                    procesofinal.push(peticiones[currentPeticion]);
+                    fallos++;
+                    $($(table.rows[5].cells[currentPeticion + 2])).text("1F");
+                } else if (!existe && procesofinal.length >= 4) {
+                    fallos++;
+                    reemplazos++;
+                    reemplazar(peticiones[currentPeticion].nombre, peticiones[currentPeticion].numPag, peticiones[currentPeticion].instante);
+                    $($(table.rows[5].cells[currentPeticion + 2])).text("1F-1R");
+                }
+            }
+
+            if (currentRow < procesofinal.length) {
+                $($(table.rows[currentRow + 1].cells[currentPeticion + 2])).text(procesofinal[currentRow].toString());
+                currentRow++;
+            } else {
+                currentRow = 0;
+                currentPeticion++;
+            }
+        } else {
+            // Cuando se completa el proceso
+            clearInterval(intervalId);
+            // Mostrar el resultado al completar el proceso
+            let resultado = `Se produjeron: ${fallos} Fallos y ${reemplazos} Reemplazos `;
+            $("#resultado").text(resultado);
+            console.log('Proceso completado');
+        }
+    }, 500); // Intervalo de 0.5 segundo
 }
 
 function simularLRUlocal() {
-    let table = document.getElementById("table2");
+    let table = $("#table2")[0];
     let fallos = 0;
     let reemplazos = 0;
-    let procesofinal = procesos.slice(); // Asumiendo que procesos es un arreglo definido fuera de la función
+    let procesofinal = procesos.slice();
+    let currentPeticion = 0;
+    let currentRow = 0;
 
     function procesoExiste(nombre, numPag) {
         for (let i = 0; i < procesofinal.length; i++) {
             if (procesofinal[i].nombre === nombre && procesofinal[i].numPag === numPag) {
+                procesofinal[i].instante = peticiones[currentPeticion].instante;
                 return true;
             }
         }
         return false;
-    }
-
-    for (let i = 0; i < peticiones.length; i++) {
-        let existe = procesoExiste(peticiones[i].nombre, peticiones[i].numPag);
-
-        if (existe) {
-            table.rows[5].cells[i + 2].textContent = "-";
-            for (let j = 0; j < procesofinal.length; j++) {
-                if (procesofinal[j].nombre === peticiones[i].nombre && procesofinal[j].numPag === peticiones[i].numPag) {
-                    procesofinal[j].instante = peticiones[i].instante;
-                    break;
-                }
-            }
-        }
-
-        if (!existe && procesofinal.length < 4) {
-            procesofinal.push(peticiones[i]);
-            fallos++;
-            table.rows[5].cells[i + 2].textContent = "1F";
-        } else if (!existe && procesofinal.length >= 4) {
-            fallos++;
-            reemplazos++;
-            reemplazar(peticiones[i].nombre, peticiones[i].numPag, peticiones[i].instante);
-            table.rows[5].cells[i + 2].textContent = "1F-1R";
-        }
-
-        for (let j = 0; j < procesofinal.length; j++) {
-            table.rows[j + 1].cells[i + 2].textContent = procesofinal[j].toString();
-        }
     }
 
     function reemplazar(nombre, numPag, instante) {
@@ -284,16 +276,118 @@ function simularLRUlocal() {
         procesofinal[pos].instante = instante;
     }
 
-    let resultado = `Se produjeron: ${fallos} Fallos y ${reemplazos} Reemplazos`;
-    let resultadoElemento = document.getElementById('resultado');
-    resultadoElemento.textContent = resultado;
+    let intervalId = setInterval(() => {
+        if (currentPeticion < peticiones.length) {
+            let existe = procesoExiste(peticiones[currentPeticion].nombre, peticiones[currentPeticion].numPag);
+
+            if (currentRow === 0) {
+                if (existe) {
+                    $($(table.rows[5].cells[currentPeticion + 2])).text("-");
+                } else if (!existe && procesofinal.length < 4) {
+                    procesofinal.push(peticiones[currentPeticion]);
+                    fallos++;
+                    $($(table.rows[5].cells[currentPeticion + 2])).text("1F");
+                } else if (!existe && procesofinal.length >= 4) {
+                    fallos++;
+                    reemplazos++;
+                    reemplazar(peticiones[currentPeticion].nombre, peticiones[currentPeticion].numPag, peticiones[currentPeticion].instante);
+                    $($(table.rows[5].cells[currentPeticion + 2])).text("1F-1R");
+                }
+            }
+
+            if (currentRow < procesofinal.length) {
+                $($(table.rows[currentRow + 1].cells[currentPeticion + 2])).text(procesofinal[currentRow].toString());
+                currentRow++;
+            } else {
+                currentRow = 0;
+                currentPeticion++;
+            }
+        } else {
+            // Cuando se completa el proceso
+            clearInterval(intervalId);
+            // Mostrar el resultado al completar el proceso
+            let resultado = `Se produjeron: ${fallos} Fallos y ${reemplazos} Reemplazos `;
+            $("#resultado").text(resultado);
+            console.log('Proceso completado');
+        }
+    }, 500); // Intervalo de 0.5 segundo
 }
 
 function simularLRUglobal() {
-    let table = document.getElementById("table2");
+    let table = $("#table2")[0];
     let fallos = 0;
     let reemplazos = 0;
-    let procesofinal = procesos.slice(); // Asumiendo que procesos es un arreglo definido fuera de la función
+    let procesofinal = procesos.slice();
+    let currentPeticion = 0;
+    let currentRow = 0;
+
+    function procesoExiste(nombre, numPag) {
+        for (let i = 0; i < procesofinal.length; i++) {
+            if (procesofinal[i].nombre === nombre && procesofinal[i].numPag === numPag) {
+                procesofinal[i].instante = peticiones[currentPeticion].instante;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function reemplazar(nombre, numPag, instante) {
+        let menortiempo = Infinity;
+        let pos = -1;
+
+        for (let i = 0; i < procesofinal.length; i++) {
+            if (procesofinal[i].instante < menortiempo) {
+                menortiempo = procesofinal[i].instante;
+                pos = i;
+            }
+        }
+        procesofinal[pos].nombre = nombre;
+        procesofinal[pos].numPag = numPag;
+        procesofinal[pos].instante = instante;
+    }
+
+    let intervalId = setInterval(() => {
+        if (currentPeticion < peticiones.length) {
+            let existe = procesoExiste(peticiones[currentPeticion].nombre, peticiones[currentPeticion].numPag);
+
+            if (currentRow === 0) {
+                if (existe) {
+                    $($(table.rows[5].cells[currentPeticion + 2])).text("-");
+                } else if (!existe && procesofinal.length < 4) {
+                    procesofinal.push(peticiones[currentPeticion]);
+                    fallos++;
+                    $($(table.rows[5].cells[currentPeticion + 2])).text("1F");
+                } else if (!existe && procesofinal.length >= 4) {
+                    fallos++;
+                    reemplazos++;
+                    reemplazar(peticiones[currentPeticion].nombre, peticiones[currentPeticion].numPag, peticiones[currentPeticion].instante);
+                    $($(table.rows[5].cells[currentPeticion + 2])).text("1F-1R");
+                }
+            }
+
+            if (currentRow < procesofinal.length) {
+                $($(table.rows[currentRow + 1].cells[currentPeticion + 2])).text(procesofinal[currentRow].toString());
+                currentRow++;
+            } else {
+                currentRow = 0;
+                currentPeticion++;
+            }
+        } else {
+            clearInterval(intervalId);
+            let resultado = `Se produjeron: ${fallos} Fallos y ${reemplazos} Reemplazos `;
+            $("#resultado").text(resultado);
+            console.log('Proceso completado');
+        }
+    }, 500);
+}
+
+function simularOptimolocal() { //arreglar
+    let table = $("#table2")[0];
+    let fallos = 0;
+    let reemplazos = 0;
+    let procesofinal = procesos.slice();
+    let currentPeticion = 0;
+    let currentRow = 0;
 
     function procesoExiste(nombre, numPag) {
         for (let i = 0; i < procesofinal.length; i++) {
@@ -304,54 +398,79 @@ function simularLRUglobal() {
         return false;
     }
 
-    for (let i = 0; i < peticiones.length; i++) {
-        let existe = procesoExiste(peticiones[i].nombre, peticiones[i].numPag);
-
-        if (existe) {
-            table.rows[5].cells[i + 2].textContent = "-";
-            for (let j = 0; j < procesofinal.length; j++) {
-                if (procesofinal[j].nombre === peticiones[i].nombre && procesofinal[j].numPag === peticiones[i].numPag) {
-                    procesofinal[j].instante = peticiones[i].instante;
-                    break;
+    function reemplazar(nombre, numPag, instante) {
+        let indice = -1;
+        let pos = -1;
+        let posible;
+    
+        for (let i = 0; i < procesofinal.length; i++) {
+            if (procesofinal[i].nombre == nombre) {
+                posible = null;
+                for (let j = instante + 1; j < peticiones.length; j++) {
+                    if (peticiones[j].nombre === procesofinal[i].nombre && peticiones[j].numPag === procesofinal[i].numPag) {
+                        posible = procesofinal[i];
+                        break;
+                    }
+                }
+                if (!posible) {
+                    // No se encontró el proceso en futuras peticiones
+                    procesofinal[i].nombre = nombre;
+                    procesofinal[i].numPag = numPag;
+                    procesofinal[i].instante = instante;
+                    return;
+                }
+                if (posible && peticiones.indexOf(posible) > indice) {
+                    indice = peticiones.indexOf(posible);
+                    pos = i;
                 }
             }
         }
-
-        if (!existe && procesofinal.length < 4) {
-            procesofinal.push(peticiones[i]);
-            fallos++;
-            table.rows[5].cells[i + 2].textContent = "1F";
-        } else if (!existe && procesofinal.length >= 4) {
-            fallos++;
-            reemplazos++;
-            reemplazar(peticiones[i].nombre, peticiones[i].numPag, peticiones[i].instante);
-            table.rows[5].cells[i + 2].textContent = "1F-1R";
+        if (pos !== -1) {
+            procesofinal[pos].nombre = nombre;
+            procesofinal[pos].numPag = numPag;
+            procesofinal[pos].instante = instante;
         }
-
-        for (let j = 0; j < procesofinal.length; j++) {
-            table.rows[j + 1].cells[i + 2].textContent = procesofinal[j].toString();
-        }
-    }
-
-    function reemplazar(nombre, numPag, instante) {
-        let menortiempo = Infinity;
-        let pos = -1;
-
-        for (let i = 0; i < procesofinal.length; i++) {
-                if (procesofinal[i].instante < menortiempo) {
-                    menortiempo = procesofinal[i].instante;
-                    pos = i;
-                }
-        }
-        procesofinal[pos].nombre = nombre;
-        procesofinal[pos].numPag = numPag;
-        procesofinal[pos].instante = instante;
     }
     
-    let resultado = `Se produjeron: ${fallos} Fallos y ${reemplazos} Reemplazos`;
-    let resultadoElemento = document.getElementById('resultado');
-    resultadoElemento.textContent = resultado;
+
+
+    let intervalId = setInterval(() => {
+        if (currentPeticion < peticiones.length) {
+            let existe = procesoExiste(peticiones[currentPeticion].nombre, peticiones[currentPeticion].numPag);
+
+            if (currentRow === 0) {
+                if (existe) {
+                    $($(table.rows[5].cells[currentPeticion + 2])).text("-");
+                } else if (!existe && procesofinal.length < 4) {
+                    procesofinal.push(peticiones[currentPeticion]);
+                    fallos++;
+                    $($(table.rows[5].cells[currentPeticion + 2])).text("1F");
+                } else if (!existe && procesofinal.length >= 4) {
+                    fallos++;
+                    reemplazos++;
+                    reemplazar(peticiones[currentPeticion].nombre, peticiones[currentPeticion].numPag, peticiones[currentPeticion].instante);
+                    $($(table.rows[5].cells[currentPeticion + 2])).text("1F-1R");
+                }
+            }
+
+            if (currentRow < procesofinal.length) {
+                $($(table.rows[currentRow + 1].cells[currentPeticion + 2])).text(procesofinal[currentRow].toString());
+                currentRow++;
+            } else {
+                currentRow = 0;
+                currentPeticion++;
+            }
+        } else {
+            clearInterval(intervalId);
+            let resultado = `Se produjeron: ${fallos} Fallos y ${reemplazos} Reemplazos `;
+            $("#resultado").text(resultado);
+            console.log('Proceso completado');
+        }
+    }, 500);
 }
+
+
+
 
 let algoritmoActual = '';
 let tipoActual = '';
