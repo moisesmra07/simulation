@@ -88,4 +88,4 @@ $string['reset'] = 'Reset Default Values';
 $string['select_algoritmo'] = 'Select page replacement algorithm:';
 $string['simular_reemplazo'] = 'Simulate replacement';
 $string['simular'] = 'Simulate';
-$string['peticiones'] = 'requests';
+$string['peticiones'] = 'Requests:';

@@ -50,18 +50,17 @@ function createTable() {
         for (let j = 0; j < cols; j++) {
             let td = document.createElement("td");
             if (j === 0) {
-                td.textContent = i - 1; // Marco (0 a 3)
+                td.textContent = i - 1;
                 if (i === 5) {
                     td.textContent = "F/R";
                 }
 
             } else if (j === 1) {
-                // Añadir los valores de los procesos en la columna 1
                 if (i <= 3) {
                     td.textContent = procesos[i - 1].toString();
                 }
                 else if (i >= 4) {
-                    td.textContent = ""; // Celda vacía
+                    td.textContent = "";
                 }
             }
             tr.appendChild(td);
@@ -89,7 +88,8 @@ function pintarUltimaFila() {
 
     if (filas.length > 0) {
         const ultimaFila = filas[filas.length - 1];
-        ultimaFila.style.backgroundColor = 'lightblue';
+        ultimaFila.style.backgroundColor = '#0056b3';
+        ultimaFila.style.color = '#ffffff';
     }
 }
 
@@ -161,6 +161,7 @@ function simularFIFOlocal() {
             }
         } else {
             clearInterval(intervalId);
+            $('#divresult').css('display', 'block');
             let resultado = `Se produjeron: ${fallos} Fallos y ${reemplazos} Reemplazos `;
             $("#resultado").text(resultado);
             console.log('Proceso completado');
@@ -227,14 +228,13 @@ function simularFIFOglobal() {
                 currentPeticion++;
             }
         } else {
-            // Cuando se completa el proceso
             clearInterval(intervalId);
-            // Mostrar el resultado al completar el proceso
+            $('#divresult').css('display', 'block');
             let resultado = `Se produjeron: ${fallos} Fallos y ${reemplazos} Reemplazos `;
             $("#resultado").text(resultado);
             console.log('Proceso completado');
         }
-    }, 500); // Intervalo de 0.5 segundo
+    }, 500);
 }
 
 function simularLRUlocal() {
@@ -299,14 +299,13 @@ function simularLRUlocal() {
                 currentPeticion++;
             }
         } else {
-            // Cuando se completa el proceso
             clearInterval(intervalId);
-            // Mostrar el resultado al completar el proceso
+            $('#divresult').css('display', 'block');
             let resultado = `Se produjeron: ${fallos} Fallos y ${reemplazos} Reemplazos `;
             $("#resultado").text(resultado);
             console.log('Proceso completado');
         }
-    }, 500); // Intervalo de 0.5 segundo
+    }, 500);
 }
 
 function simularLRUglobal() {
@@ -370,6 +369,7 @@ function simularLRUglobal() {
             }
         } else {
             clearInterval(intervalId);
+            $('#divresult').css('display', 'block');
             let resultado = `Se produjeron: ${fallos} Fallos y ${reemplazos} Reemplazos `;
             $("#resultado").text(resultado);
             console.log('Proceso completado');
@@ -464,9 +464,6 @@ function simularOptimolocal() { //arreglar
         }
     }, 500);
 }
-
-
-
 
 let algoritmoActual = '';
 let tipoActual = '';

@@ -41,6 +41,7 @@ $renderer = $PAGE->get_renderer('mod_simulation', 'replace_page');
 $data = array(
     'select_algoritmo' => get_string('select_algoritmo', 'mod_simulation'),
     'elegir' => get_string('elegir', 'mod_simulation'),
+    'peticiones' => get_string('peticiones', 'mod_simulation'),
     'simular' => get_string('simular', 'mod_simulation')
 );
 

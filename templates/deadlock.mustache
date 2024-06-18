@@ -5,43 +5,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Deadlock</title>
-    <link rel="stylesheet" href="styles/interbloqueo.css">
+    <link rel="stylesheet" href="styles/home.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <h5 id="h5"> {{{select}}} </h5>
-        <div class="row mb-3">
-            <div class="col-3">
-                <div class="card text-center border-primary">
-                    <img src="pix/icono_SLI.png" class="card-img-top" alt="SLI">
-                    <div class="card-body">
-                        <a class="card-link" href="{{{sli_url}}}"> {{{sli}}} </a>
-                    </div>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="column">
+                    <h5>{{{ sli }}}</h5>
+                    <img src="/mod/simulation/pix/icono_SLI.png" alt="SLI" class="img-fluid">
+                    <a href="{{{ sli_url }}}">{{{ explore }}}</a>
                 </div>
             </div>
-            <div class="col-3">
-                <div class="card text-center border-primary">
-                    <img src="pix/icono_MS.png" class="card-img-top" alt="MS">
-                    <div class="card-body">
-                        <a class="card-link" href="{{{ms_url}}}"> {{{ms}}} </a>
-                    </div>
+
+            <div class="col-md-6">
+                <div class="column">
+                    <h5>{{{ ms }}}</h5>
+                    <img src="/mod/simulation/pix/icono_MS.png" alt="MS" class="img-fluid">
+                    <a href="{{{ ms_url }}}">{{{ explore }}}</a>
                 </div>
             </div>
-            <div class="col-3">
-                <div class="card text-center border-primary">
-                    <img src="pix/icono_VD.png" class="card-img-top" alt="DM">
-                    <div class="card-body">
-                        <a class="card-link" href="{{{dm_url}}}"> {{{dm}}} </a>
-                    </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="column">
+                    <h5>{{{ dm }}}</h5>
+                    <img src="/mod/simulation/pix/icono_VD.png" alt="DM" class="img-fluid">
+                    <a href="{{{ dm_url }}}">{{{ explore }}}</a>
                 </div>
             </div>
-            <div class="col-3">
-                <div class="card text-center border-primary">
-                    <img src="pix/icono_AR.png" class="card-img-top" alt="AR">
-                    <div class="card-body">
-                        <a class="card-link" href="{{{ar_url}}}"> {{{ar}}} </a>                   
-                    </div>
+
+            <div class="col-md-6">
+                <div class="column">
+                    <h5>{{{ ar }}}</h5>
+                    <img src="/mod/simulation/pix/icono_AR.png" alt="AR" class="img-fluid">
+                    <a href="{{{ ar_url }}}">{{{ explore }}}</a>
                 </div>
             </div>
         </div>

@@ -1,61 +1,58 @@
 {{% BLOCKS }}
 <!DOCTYPE html>
 <html lang="en">
-<html>
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{{$ title }}Replace{{/ title }}</title>
         {{$ stylesheets }}
-            <link rel="stylesheet" href="styles/memory.css">            
+            <link rel="stylesheet" href="styles/memoria.css">            
         {{/ stylesheets }}
     </head>
     <body>
+
         <div class="table-container1">
-            <!-- Primera tabla (peticiones) -->
-            <table id="table1" ></table>
+            <h5 class="section-title"> {{{peticiones}}} </h5>
+            <table id="table1" class="styled-table"></table>
         </div>
 
-        <div class="table-container2">       
-            <!-- Segunda tabla (reemplazo) -->
-            <table id="table2"></table>
+        <div class="table-container2">
+            <table id="table2" class="styled-table"></table>
         </div>
 
-        <h5 style="text-align: left;  margin-top: 20px;"><b> {{{select_algoritmo}}} </b></h5>
-    <div class="row mb-4" style="border: outset 2px darkblue;">
-        <div class="row container-fluid" style="display: flex; text-align: center; align-items: center;">
-            <div class="col-4">
-                <button id="btnFIFOlocal" class="btn letter" onclick="simularAlgoritmo('FIFO', 'local')"> FIFO LOCAL </button>
+        <h5 class="section-title"> {{{select_algoritmo}}} </h5>
+        <div class="algorithm-selection">
+            <div class="row">
+                <div class="col-4">
+                    <button id="btnFIFOlocal" class="btn btn-custom" onclick="simularAlgoritmo('FIFO', 'local')">FIFO LOCAL</button>
+                </div>
+                <div class="col-4">
+                    <button id="btnLRUlocal" class="btn btn-custom" onclick="simularAlgoritmo('LRU', 'local')">LRU LOCAL</button>
+                </div>
+                <div class="col-4">
+                    <button id="btnOptimolocal" class="btn btn-custom" onclick="simularAlgoritmo('ÓPTIMO', 'local')">ÓPTIMO LOCAL</button>
+                </div>
             </div>
-            <div class="col-4">
-                <button id="btnLRUlocal" class="btn letter" onclick="simularAlgoritmo('LRU', 'local')"> LRU LOCAL </button>
-            </div>
-            <div class="col-4">
-                <button id="btnOptimolocal" class="btn letter" onclick="simularAlgoritmo('ÓPTIMO', 'local')"> ÓPTIMO LOCAL </button>
+            <div class="row">
+                <div class="col-4">
+                    <button id="btnFIFOglobal" class="btn btn-custom" onclick="simularAlgoritmo('FIFO', 'global')">FIFO GLOBAL</button>
+                </div>
+                <div class="col-4">
+                    <button id="btnLRUglobal" class="btn btn-custom" onclick="simularAlgoritmo('LRU', 'global')">LRU GLOBAL</button>
+                </div>
+                <div class="col-4">
+                    <button id="btnOptimoglobal" class="btn btn-custom" onclick="simularAlgoritmo('ÓPTIMO', 'global')">ÓPTIMO GLOBAL</button>
+                </div>
             </div>
         </div>
 
-        <div class="row container-fluid" style="display: flex; text-align: center; align-items: center;">
-            <div class="col-4">
-                <button id="btnFIFOglobal" class="btn letter" onclick="simularAlgoritmo('FIFO', 'global')"> FIFO GLOBAL </button>
-            </div>
-            <div class="col-4">
-                <button id="btnLRUglobal" class="btn letter" onclick="simularAlgoritmo('LRU', 'global')"> LRU GLOBAL </button>
-            </div>
-            <div class="col-4">
-                <button id="btnOptimoglobal" class="btn letter" onclick="simularAlgoritmo('ÓPTIMO', 'global')"> ÓPTIMO GLOBAL </button>
-            </div>
-        </div>
-    </div>
-
-        <div class="container-fluid mb-3" style="text-align: center; align-items: center; margin-top: 40px;"> 
+        <div id="divresult" class="result-container">
             <h5 id="resultado"> {{{resultado}}} </h5>
         </div>
 
-
         {{$ scripts }}
-            <script src="scripts/replace_main.js"></script>
+            <script src="scripts/reemplazo_main.js"></script>
         {{/ scripts }}
     </body>
 </html>

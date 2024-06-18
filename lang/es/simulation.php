@@ -88,4 +88,4 @@ $string['reset'] = 'Restablecer valores predetermindos';
 $string['select_algoritmo'] = 'Seleccionar algoritmo de reemplazo de páginas:';
 $string['simular_reemplazo'] = 'Simular reemplazo';
 $string['simular'] = 'Simular';
-$string['peticiones'] = 'peticiones';
+$string['peticiones'] = 'Peticiones:';

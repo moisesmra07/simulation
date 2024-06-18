@@ -47,7 +47,8 @@ $data = array(
     'dm_url' => new moodle_url('/mod/simulation/dm.php', array('id' => $cm->id)),
     'dm' => get_string('dm', 'mod_simulation'),
     'ar_url' => new moodle_url('/mod/simulation/ar.php', array('id' => $cm->id)),
-    'ar' => get_string('ar', 'mod_simulation')
+    'ar' => get_string('ar', 'mod_simulation'),
+    'explore' => get_string('explore', 'mod_simulation')
 );
 
 echo $OUTPUT->header();
