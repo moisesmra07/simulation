@@ -10,7 +10,6 @@ class Proceso {
     }
 }
 
-// Procesos fijos
 let procesos = [
     new Proceso("A", 2, 1),
     new Proceso("A", 0, 2),
@@ -29,26 +28,23 @@ let peticiones = [
 ];
 
 function createTable() {
-    const table = document.getElementById("table2");
+    let table = document.getElementById("table2");
 
-    // Número de filas y columnas
-    const rows = 6;
-    const cols = 10;
+    let rows = 6;
+    let cols = 10;
 
-    // Crear la primera fila con los instantes de tiempo
     let tr = document.createElement("tr");
     for (let j = 0; j < cols; j++) {
         let td = document.createElement("td");
         if (j === 0) {
             td.textContent = "Marcos";
         } else {
-            td.textContent = j + 3; // Comienza en 4
+            td.textContent = j + 3;
         }
         tr.appendChild(td);
     }
     table.appendChild(tr);
 
-    // Crear las demás filas
     for (let i = 1; i < rows; i++) {
         let tr = document.createElement("tr");
         for (let j = 0; j < cols; j++) {
@@ -76,7 +72,7 @@ function createTable() {
 }
 
 function crearTablaPeticiones() {
-    const table1 = document.getElementById("table1");
+    let table1 = document.getElementById("table1");
 
     let tr = document.createElement("tr");
     peticiones.forEach(proceso => {

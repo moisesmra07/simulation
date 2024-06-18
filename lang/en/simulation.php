@@ -67,7 +67,7 @@ $string['answer_sequence'] = 'A possible Deadlock-Free Sequence (SLI) is:';
 $string['answer'] = 'Iterations:';
 
 //strings para calculate.php
-$string['calculate_memory'] = 'Virtual Memory Calculations';
+$string['calculate_memory'] = 'Memory Calculations';
 $string['ex1'] = 'Calculate CM, TM, MV:';
 $string['ex2'] = 'Calculate CP, TP, MF:';
 $string['MV'] = 'Virtual Memory Size';

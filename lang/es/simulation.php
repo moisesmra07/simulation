@@ -67,7 +67,7 @@ $string['answer_sequence'] = 'Una posible Secuencia Libre de Interbloqueo (SLI) 
 $string['answer'] = 'Iteraciones:';
 
 //strings para calculate.php
-$string['calcular_memoria'] = 'Cálculos de la Memoria Virtual';
+$string['calcular_memoria'] = 'Cálculos de la Memoria';
 $string['ex1'] = 'Calcular CM, TM, MV:';
 $string['ex2'] = 'Calcular CP, TP, MF:';
 $string['MV'] = 'Tamaño de Memoria Virtual';

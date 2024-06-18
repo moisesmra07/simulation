@@ -242,7 +242,6 @@ $(document).ready(function () {
         while (secuenciaProcesos.length < numProcesos) {
             for (let i = 0; i < numProcesos; i++) {
                 if (!fueLiberado(i) && puedeSerLiberado(i)) {
-                    let solicitudProceso = solicitud[i];
                     let disponibilidadActual = [...disponibilidad];
                     secuenciaProcesos.push(i);
                     disponibilidad = calcularNuevaDisponibilidad(i);

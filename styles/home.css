@@ -18,7 +18,7 @@ body {
 }
 .column img {
     width: 100%;
-    max-width: 150px;
+    height: 100%;
     margin-bottom: 10px;
 }
 .column h5 {

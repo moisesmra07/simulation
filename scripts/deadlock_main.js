@@ -5,7 +5,6 @@ function generarMS() {
     let vectorExistencia = crearVectorExistencia();
     let secuenciaProcesos = crearSecuenciaProcesos();
 
-    // Puedes hacer más con los datos generados, como calcular resultados o mostrarlos en la interfaz de usuario
     console.log("Matriz de Asignación:", matrizAsignacion);
     console.log("Vector de Disponibilidad:", vectorDisponibilidad);
     console.log("Vector de Existencia:", vectorExistencia);
@@ -43,15 +42,13 @@ function crearMatrizAsignacion() {
     let tablaMA = document.getElementById('matrizAsignacion');
     let matrizA = [];
 
-    // Validar entradas
     if (isNaN(filas) || isNaN(columnas) || filas <= 0 || columnas <= 0) {
         console.error("Número de filas y columnas debe ser un entero positivo.");
-        return null; // Retornar null en caso de error
+        return null;
     }
 
     tablaMA.innerHTML = '';
 
-    // Crear la tabla
     for (let i = 0; i < filas; i++) {
         let fila = document.createElement('tr');
         let filaArray = [];
