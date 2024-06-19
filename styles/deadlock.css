@@ -47,12 +47,12 @@ input[type="number"] {
 }
 
 input[type="number"]:focus {
-    border-color: #0f6cbf;
+    border-color: #0056b3;
 }
 
 button.btn {
     padding: 10px 20px;
-    background-color: #0f6cbf;
+    background-color: #0056b3;
     color: white;
     border: none;
     border-radius: 4px;
@@ -61,7 +61,7 @@ button.btn {
 }
 
 button.btn:hover {
-    background-color: #0f6cbf;
+    background-color: #0056b3;
 }
 
 table {
@@ -73,19 +73,19 @@ table {
 }
 
 table tr {
-    border-bottom: 1px solid #0f6cbf;
-    border-top: 1px solid #0f6cbf;
-    border-right: 1px solid #0f6cbf;
-    border-left: 1px solid #0f6cbf;
+    border-bottom: 1px solid #0056b3;
+    border-top: 1px solid #0056b3;
+    border-right: 1px solid #0056b3;
+    border-left: 1px solid #0056b3;
 }
 
 table td {
     padding: 10px;
     text-align: center;
-    border-bottom: 1px solid #0f6cbf;
-    border-top: 1px solid #0f6cbf;
-    border-right: 1px solid #0f6cbf;
-    border-left: 1px solid #0f6cbf;
+    border-bottom: 1px solid #0056b3;
+    border-top: 1px solid #0056b3;
+    border-right: 1px solid #0056b3;
+    border-left: 1px solid #0056b3;
 }
 
 table input[type="number"] {
@@ -97,7 +97,7 @@ table input[type="number"] {
 }
 
 table input[type="number"]:focus {
-    border: 1px solid #00135a;
+    border: 1px solid black;
 }
 
 #mensaje1 {
@@ -124,7 +124,7 @@ table input[type="number"]:focus {
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 4px;
-    border-color: 1px solid #0f6cbf;
+    border-color: 1px solid #0056b3;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -132,3 +132,9 @@ table input[type="number"]:focus {
     margin-bottom: 5px;
     color: black;
 }
+
+.btn-blue {
+    background-color: #0056b3;
+    color: white;
+}
+
